@@ -118,12 +118,12 @@ export default function ProgramsPage() {
                                 </div>
 
                                 <div className="px-6 pb-6 pt-0 md:px-10 md:pb-10">
-                                    <Link href={`/programs/${course.id}`}>
-                                        <Button variant="outline" className="w-full rounded-full h-12 border-slate-200 text-slate-600 hover:text-primary hover:border-slate-300 hover:bg-slate-50 font-medium transition-all group-hover:border-accent group-hover:text-accent">
+                                    <Button asChild variant="outline" className="w-full rounded-full h-12 border-slate-200 text-slate-600 hover:text-primary hover:border-slate-300 hover:bg-slate-50 font-medium transition-all group-hover:border-accent group-hover:text-accent">
+                                        <Link href={`/programs/${course.id}`}>
                                             View Curriculum
                                             <ArrowRight className="ml-2 w-4 h-4" />
-                                        </Button>
-                                    </Link>
+                                        </Link>
+                                    </Button>
                                 </div>
                             </Card>
                         </motion.div>

@@ -123,15 +123,16 @@ export function Programs() {
 
                                     <div className="mt-auto border-t border-slate-100 pt-6 flex items-center justify-between">
                                         <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">12 Months</span>
-                                        <Link href={`/programs/${program.id}`}>
-                                            <Button
-                                                variant="ghost"
-                                                size="sm"
-                                                className="text-primary hover:text-accent hover:bg-transparent p-0 font-medium"
-                                            >
+                                        <Button
+                                            asChild
+                                            variant="ghost"
+                                            size="sm"
+                                            className="text-primary hover:text-accent hover:bg-transparent p-0 font-medium"
+                                        >
+                                            <Link href={`/programs/${program.id}`}>
                                                 View Syllabus <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                            </Button>
-                                        </Link>
+                                            </Link>
+                                        </Button>
                                     </div>
                                 </div>
                             </Card>
