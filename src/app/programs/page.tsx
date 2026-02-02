@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Plane, Building2, Utensils, Headphones, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";

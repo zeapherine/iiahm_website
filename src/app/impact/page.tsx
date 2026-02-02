@@ -32,16 +32,16 @@ export default function ImpactPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl sm:text-6xl md:text-8xl font-display font-semibold tracking-tight mb-8"
+                        className="text-4xl sm:text-6xl md:text-8xl font-display font-semibold tracking-tight mb-8 text-white"
                     >
                         Proven Excellence. <br />
-                        <span className="text-slate-400">Measured.</span>
+                        <span className="text-slate-300">Measured.</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed"
+                        className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed"
                     >
                         At IIAHM, our success is measured by the careers we build and the lives we transform in the Northeast India region.
                     </motion.p>

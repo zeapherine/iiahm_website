@@ -18,7 +18,6 @@ export function Hero() {
     });
 
     const imageY = useTransform(scrollYProgress, [0, 1], [0, 150]);
-    const badgeY = useTransform(scrollYProgress, [0, 1], [0, 80]);
     const textY = useTransform(scrollYProgress, [0, 1], [0, -30]);
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
@@ -143,6 +142,7 @@ export function Hero() {
                                     src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?q=80&w=2560&auto=format&fit=crop"
                                     alt="Aviation Academy Students"
                                     fill
+                                    sizes="(max-width: 1024px) 0px, 50vw"
                                     className="object-cover transition-transform duration-1000 hover:scale-105"
                                     priority
                                 />

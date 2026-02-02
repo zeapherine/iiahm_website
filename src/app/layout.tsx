@@ -1,6 +1,6 @@
 import { Suspense, type ReactNode } from "react";
 import type { Metadata } from "next";
-import { Inter, Outfit, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,16 +13,8 @@ import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  display: "swap", // Optimize font loading
+  preload: true, // Preload for better performance
 });
 
 export const metadata: Metadata = {
@@ -38,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${outfit.variable} ${spaceGrotesk.variable} font-sans antialiased text-foreground bg-background`}
+        className={`${inter.variable} font-sans antialiased text-foreground bg-background`}
         suppressHydrationWarning
       >
         <ThemeProvider>

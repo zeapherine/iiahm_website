@@ -1,7 +1,6 @@
 "use client";
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import { useEffect, useState } from "react";
 
 export default function DynamicBackground() {
     const { scrollYProgress } = useScroll();
