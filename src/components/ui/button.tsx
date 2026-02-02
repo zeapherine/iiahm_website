@@ -8,29 +8,23 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-btn)] text-sm font-bold uppercase tracking-wider transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none border-2 border-black active:translate-x-[1px] active:translate-y-[1px] active:shadow-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-btn)] text-sm font-bold uppercase tracking-wider transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none border border-slate-700 active:scale-[0.98]",
   {
     variants: {
       variant: {
-        default: "bg-noir text-white shadow-hard hover:bg-noir/90 hover:shadow-glow",
-        destructive:
-          "bg-destructive text-white shadow-hard hover:bg-destructive/90",
-        outline:
-          "bg-white text-noir shadow-hard hover:bg-smoke",
-        secondary:
-          "bg-smoke text-noir shadow-hard hover:bg-smoke/80",
-        ghost:
-          "border-transparent hover:bg-smoke",
-        link: "border-transparent text-primary underline-offset-4 hover:underline",
-        accent: "bg-primary text-white shadow-hard hover:bg-primary-dark hover:shadow-glow",
-        neon: "bg-neon-green text-noir shadow-hard hover:bg-neon-green/90",
-        pink: "bg-hot-pink text-white shadow-hard hover:bg-hot-pink/90",
-        ghost_white: "border-white text-white bg-transparent hover:bg-white/10"
+        default: "bg-primary text-white shadow-md hover:bg-primary/90 hover:shadow-lg border-primary",
+        destructive: "bg-destructive text-white shadow-md hover:bg-destructive/90",
+        outline: "bg-white text-primary border-slate-200 shadow-sm hover:bg-slate-50 hover:border-slate-300",
+        secondary: "bg-slate-100 text-primary shadow-sm hover:bg-slate-200",
+        ghost: "border-transparent hover:bg-slate-100 hover:text-primary",
+        link: "border-transparent text-primary underline-offset-4 hover:underline shadow-none",
+        accent: "bg-accent text-white border-accent shadow-md hover:bg-accent/90 hover:shadow-glow",
+        ghost_white: "border-white/30 text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm"
       },
       size: {
         default: "h-12 px-8 py-2",
         xs: "h-8 gap-1 px-3 text-xs",
-        sm: "h-10 gap-1.5 px-4",
+        sm: "h-10 gap-1.5 px-6",
         lg: "h-16 px-12 text-lg",
         icon: "size-12",
         "icon-xs": "size-8",

@@ -41,64 +41,61 @@ export default function Header() {
         <>
             <header
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
                     isScrolled
-                        ? "bg-white/80 backdrop-blur-md border-b-2 border-noir/10 py-4"
-                        : "bg-transparent py-8"
+                        ? "bg-white/90 backdrop-blur-md shadow-subtle py-4"
+                        : "bg-white/50 backdrop-blur-sm py-5" // Added subtle background to default state to prevent total transparency clashes
                 )}
             >
                 <nav className="container mx-auto px-6 flex items-center justify-between">
                     <Link
                         href="/"
-                        className="text-4xl font-heading font-black text-noir tracking-tighter uppercase group"
+                        className="flex items-center gap-2 group"
                     >
-                        IIA<span className="text-primary transition-all duration-500 group-hover:tracking-[0.2em]">H</span>M
+                        <span className={cn(
+                            "text-2xl font-heading font-black tracking-tight",
+                            isScrolled ? "text-slate-900" : "text-slate-900"
+                        )}>
+                            IIAHM
+                        </span>
+                        <div className="w-2 h-2 rounded-full bg-accent group-hover:scale-125 transition-transform" />
                     </Link>
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-12">
-                        {navLinks.map((link, i) => (
-                            <motion.div
+                        {navLinks.map((link) => (
+                            <Link
                                 key={link.name}
-                                initial={{ opacity: 0, y: -10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 + i * 0.1 }}
+                                href={link.href}
+                                className={cn(
+                                    "text-sm font-medium tracking-wide transition-all relative py-1",
+                                    pathname === link.href
+                                        ? "text-accent font-semibold"
+                                        : "text-slate-600 hover:text-slate-900"
+                                )}
                             >
-                                <Link
-                                    href={link.href}
-                                    className={cn(
-                                        "text-[10px] font-black uppercase tracking-[0.2em] transition-all relative group",
-                                        pathname === link.href ? "text-primary" : "text-noir"
-                                    )}
-                                >
-                                    {link.name}
-                                    <span className={cn(
-                                        "absolute -bottom-2 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full",
-                                        pathname === link.href && "w-full"
-                                    )} />
-                                </Link>
-                            </motion.div>
+                                {link.name}
+                                {pathname === link.href && (
+                                    <motion.div
+                                        layoutId="underline"
+                                        className="absolute left-0 right-0 -bottom-1 h-0.5 bg-accent"
+                                    />
+                                )}
+                            </Link>
                         ))}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5 }}
+                        <Button
+                            variant="default"
+                            size="sm"
+                            className="hidden lg:flex px-6 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all"
+                            onClick={() => setShowPopup(true)}
                         >
-                            <Button
-                                variant="accent"
-                                size="sm"
-                                magnetic
-                                className="hidden lg:flex px-8"
-                                onClick={() => setShowPopup(true)}
-                            >
-                                START ENROLLMENT
-                            </Button>
-                        </motion.div>
+                            Enquire Now
+                        </Button>
                     </div>
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-noir p-2 h-12 w-12 flex items-center justify-center border-2 border-noir hover:bg-noir hover:text-white transition-colors"
+                        className="md:hidden text-slate-800 p-2"
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,56 +106,32 @@ export default function Header() {
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="fixed inset-0 z-40 md:hidden bg-white/95 backdrop-blur-xl"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="fixed inset-0 z-40 top-[70px] md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100"
                         >
-                            <div className="flex flex-col h-full p-12 justify-center">
-                                <button
-                                    onClick={() => setIsOpen(false)}
-                                    className="absolute top-8 right-8 p-3 border-2 border-noir"
-                                >
-                                    <X className="w-8 h-8" />
-                                </button>
-                                <div className="space-y-10">
-                                    {navLinks.map((link, i) => (
-                                        <motion.div
-                                            key={link.name}
-                                            initial={{ opacity: 0, x: -30 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: i * 0.1 }}
-                                        >
-                                            <Link
-                                                href={link.href}
-                                                className={cn(
-                                                    "text-6xl font-heading font-black uppercase tracking-tighter block transition-all",
-                                                    pathname === link.href ? "text-primary translate-x-4" : "text-noir hover:translate-x-2"
-                                                )}
-                                            >
-                                                {link.name}
-                                            </Link>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.4 }}
-                                    className="mt-16"
-                                >
-                                    <Button
-                                        variant="accent"
-                                        size="lg"
-                                        className="w-full text-2xl h-20"
-                                        onClick={() => {
-                                            setIsOpen(false);
-                                            setShowPopup(true);
-                                        }}
+                            <div className="flex flex-col p-8 space-y-6">
+                                {navLinks.map((link, i) => (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-2xl font-heading font-medium text-slate-800 hover:text-accent transition-colors"
                                     >
-                                        APPLY NOW
-                                    </Button>
-                                </motion.div>
+                                        {link.name}
+                                    </Link>
+                                ))}
+                                <Button
+                                    variant="default"
+                                    className="w-full h-12 text-lg mt-8 rounded-full"
+                                    onClick={() => {
+                                        setIsOpen(false);
+                                        setShowPopup(true);
+                                    }}
+                                >
+                                    Start Application
+                                </Button>
                             </div>
                         </motion.div>
                     )}

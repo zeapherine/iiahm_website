@@ -18,42 +18,42 @@ export function Impact() {
     const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
-        <section ref={ref} className="bg-white py-32 overflow-hidden border-t border-noir/5">
-            <div className="container mx-auto px-6">
-                <div className="mb-24 flex flex-col lg:flex-row lg:items-center justify-between gap-16">
-                    <div className="max-w-2xl">
-                        <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="inline-flex items-center gap-3 bg-noir text-white px-4 py-1 text-[10px] font-black uppercase tracking-[0.3em] mb-8"
-                        >
-                            <div className="w-2 h-2 bg-primary animate-pulse" />
-                            IMPACT_VALIDATION
-                        </motion.div>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="font-heading text-7xl md:text-[8rem] lg:text-[10rem] font-black leading-[0.85] tracking-tighter text-noir"
-                        >
-                            MEASURABLE <br />
-                            <span className="text-primary italic">PROGRESS.</span>
-                        </motion.h2>
-                    </div>
+        <section ref={ref} className="bg-slate-900 py-32 overflow-hidden relative text-white">
+            {/* Background Pattern - subtle dots */}
+            <div className="absolute inset-0 z-0 opacity-[0.1]"
+                style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="mb-24 flex flex-col items-center text-center">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.3 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="bg-noir p-12 border-2 border-noir text-white relative overflow-hidden"
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-slate-300 text-xs font-semibold uppercase tracking-wider mb-6"
                     >
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/20 -mr-16 -mt-16 rounded-full blur-3xl" />
-                        <p className="font-heading text-3xl font-black uppercase leading-tight relative z-10">
-                            We bridge the gap between rural potential and global demand through surgical precision in training.
-                        </p>
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                        Our Track Record
                     </motion.div>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="font-display text-5xl md:text-7xl font-semibold tracking-tight text-white mb-6"
+                    >
+                        Measurable <br />
+                        <span className="text-accent">Excellence.</span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="text-lg text-slate-400 max-w-2xl leading-relaxed"
+                    >
+                        We bridge the gap between local talent and global opportunities through rigorous, world-class training standards.
+                    </motion.p>
                 </div>
 
                 {/* Stats Grid */}
@@ -65,27 +65,24 @@ export function Impact() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
-                            className={cn(
-                                "group relative p-10 border-2 border-noir bg-white transition-all duration-500 hover:shadow-glow hover:-translate-y-2",
-                                stat.theme === "indigo" && "bg-smoke"
-                            )}
+                            className="group relative p-8 border border-white/10 bg-white/5 rounded-2xl backdrop-blur-sm transition-all duration-500 hover:bg-white/10 hover:border-white/20"
                         >
-                            <div className="absolute top-6 right-6 p-2 bg-smoke border border-noir/10 group-hover:bg-primary group-hover:text-white transition-colors">
-                                <stat.icon className="h-6 w-6" />
+                            <div className="flex items-center justify-between mb-8">
+                                <div className="p-3 bg-white/5 rounded-xl text-accent group-hover:scale-110 transition-transform">
+                                    <stat.icon className="h-6 w-6" />
+                                </div>
+                                <div className="text-xs font-medium text-slate-500 bg-white/5 px-2 py-1 rounded-md">
+                                    2025
+                                </div>
                             </div>
 
-                            <div className="font-heading text-8xl font-black tracking-tight text-noir mb-4">
+                            <div className="font-display text-5xl font-semibold tracking-tight text-white mb-2 group-hover:text-accent transition-colors">
                                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                             </div>
 
-                            <p className="font-black text-noir/40 uppercase tracking-[0.2em] text-[10px] mb-6">
+                            <p className="text-sm font-medium text-slate-400 uppercase tracking-widest">
                                 {stat.label}
                             </p>
-
-                            <div className="flex items-center gap-2 pt-6 border-t border-noir/5">
-                                <CheckCircle2 className="w-4 h-4 text-primary" />
-                                <span className="font-mono text-[9px] font-black uppercase tracking-widest text-noir/60">VERIFIED_RECORDS</span>
-                            </div>
                         </motion.div>
                     ))}
                 </div>
