@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import { LoadingBar } from "@/components/ui/LoadingBar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import DynamicBackground from "@/components/layout/DynamicBackground";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
+          <DynamicBackground />
           <Suspense fallback={null}>
             <LoadingBar />
           </Suspense>
