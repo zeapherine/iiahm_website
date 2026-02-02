@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Plane, Building2, Utensils, Headphones, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Plane, Building2, Utensils, Headphones, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -11,173 +12,208 @@ const courses = [
         id: "aviation",
         title: "Aviation & Air Hostess",
         icon: Plane,
-        duration: "1 Year Professional Diploma",
-        description: "Master the art of cabin crew services, grooming standards, and safety protocols with our world-class trainers.",
-        features: ["Cabin Crew Training", "Passenger Counseling", "First Aid & Safety", "Grooming & Etiquette"],
-        color: "bg-neon-green"
+        duration: "1_YEAR_DIPLOMA",
+        description: "Master global cabin standards, international grooming, and tactical safety protocols.",
+        features: ["Cabin_Crew_Operations", "Passenger_Liaison", "Surgical_Grooming", "Safety_Tactics"]
     },
     {
         id: "hotel",
         title: "Hotel Management",
         icon: Building2,
-        duration: "1 Year Professional Diploma",
-        description: "Comprehensive training in front office, housekeeping, and F&B management with exclusive tie-ups with 5-star global hospitality brands.",
-        features: ["Front Office Operations", "Housekeeping Management", "Food & Beverage Service", "Banquet Handling"],
-        color: "bg-accent"
+        duration: "1_YEAR_DIPLOMA",
+        description: "Precision training for elite front-office and F&B operations in 5-star global chains.",
+        features: ["Front_Office_Elite", "F&B_Strategy", "Luxury_Operations", "Hospitality_Leadership"]
     },
     {
         id: "hospitality",
-        title: "Hospitality Management",
+        title: "Global Hospitality",
         icon: Utensils,
-        duration: "6 Months Professional Certificate",
-        description: "Focused training on guest relations and service excellence for the booming dining and tourism sectors in Northeast India.",
-        features: ["Customer Service", "Billing & POS", "Guest Relations", "Local Tourism"],
-        color: "bg-hot-pink"
+        duration: "6_MONTHS_CERT",
+        description: "Engineered guest relations and service excellence for the modern global tourism sector.",
+        features: ["Service_Excellence", "Global_Tourism", "CRM_Tactics", "Luxe_Relations"]
     },
     {
         id: "customer-service",
-        title: "Global Customer Service",
+        title: "Corporate Desk Operations",
         icon: Headphones,
-        duration: "3 Months Intensive Course",
-        description: "Intensive training program designed to prepare youth for global call centers and corporate desk jobs.",
-        features: ["Voice & Accent", "Conflict Resolution", "Email Etiquette", "Technical Support"],
-        color: "bg-primary"
+        duration: "3_MONTHS_INTENSIVE",
+        description: "Tactical communication and desk support for international corporate environments.",
+        features: ["Global_Accents", "Conflict_Resolution", "Digital_Liaison", "Ops_Coordination"]
     }
 ];
 
 export default function ProgramsPage() {
     return (
-        <div className="flex flex-col bg-white min-h-screen pt-24 overflow-x-hidden">
-            {/* Zine Header */}
-            <section className="container mx-auto px-6 py-20 border-b-8 border-black">
-                <div className="flex flex-col lg:flex-row gap-12 items-end justify-between">
-                    <div className="max-w-4xl space-y-8">
-                        <div className="inline-block bg-hot-pink text-white px-6 py-2 font-heading font-black uppercase text-xl rotate-[-2deg] border-4 border-black shadow-hard">
-                            MISSION BRIEFING
-                        </div>
-                        <h1 className="text-7xl md:text-9xl font-heading font-black text-black leading-[0.8] tracking-tighter uppercase drop-shadow-[8px_8px_0px_rgba(0,0,0,1)]">
-                            CHOOSE YOUR <br />
-                            <span className="text-primary italic">SKILLSET</span>.
-                        </h1>
+        <div className="flex flex-col bg-smoke min-h-screen pt-24 overflow-x-hidden">
+            {/* Noir Header */}
+            <section className="container mx-auto px-6 py-20">
+                <div className="flex flex-col lg:flex-row gap-16 items-start justify-between">
+                    <div className="max-w-4xl space-y-10">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="inline-flex items-center gap-3 bg-noir text-white px-4 py-1 text-[10px] font-black uppercase tracking-[0.3em]"
+                        >
+                            <div className="w-2 h-2 bg-primary animate-pulse" />
+                            MODULE_CATALOG_V1.0
+                        </motion.div>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 40 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-7xl md:text-[10rem] font-heading font-black text-noir leading-[0.8] tracking-tighter uppercase"
+                        >
+                            ENGINEERED <br />
+                            <span className="text-primary italic">SKILLSETS</span>.
+                        </motion.h1>
                     </div>
-                    <div className="bg-black text-white p-8 border-4 border-white shadow-hard max-w-sm rotate-[1deg]">
-                        <p className="font-mono text-xs uppercase tracking-widest leading-relaxed">
-                            // CURATED TRAINING MODULES DESIGNED BY INDUSTRY VETERANS.
-                        // TRANSITION FROM LOCAL TALENT TO GLOBAL PROFESSIONAL.
-                        // MISSION_START_2025
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.3 }}
+                        className="bg-noir text-white p-12 border-2 border-noir relative overflow-hidden max-w-sm"
+                    >
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 blur-2xl" />
+                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] leading-relaxed relative z-10 text-white/60">
+                            // ALL TRAINING MODULES ARE ALIGNED WITH INTERNATIONAL AVIATION AND HOSPITALITY STANDARDS.
+                            AUTHORIZED TRAINING CENTER // REGIONAL_OPERATIONS // 2025_REF_LOG.
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
-            <div className="flex flex-col lg:flex-row border-b-8 border-black">
-                {/* Vertical Marquee Sidebar */}
-                <div className="lg:w-24 bg-neon-green border-r-8 border-black flex items-center justify-center p-4 lg:p-0">
-                    <div className="flex lg:rotate-[-90deg] whitespace-nowrap">
-                        <span className="text-4xl lg:text-5xl font-heading font-black uppercase text-black mx-10">
-                            GLOBAL CAREERS • UNLIMITED POTENTIAL • FLY HIGHER • SERVE BETTER •
-                        </span>
-                        <span className="text-4xl lg:text-5xl font-heading font-black uppercase text-black mx-10 lg:hidden">
-                            GLOBAL CAREERS • UNLIMITED POTENTIAL •
+            <div className="flex flex-col lg:flex-row border-y border-noir/5 bg-white">
+                {/* Vertical Noir Sidebar */}
+                <div className="lg:w-24 bg-noir border-r border-noir flex items-center justify-center p-6 lg:p-0 relative overflow-hidden">
+                    <div className="flex lg:rotate-[-90deg] whitespace-nowrap animate-marquee">
+                        <span className="text-3xl font-heading font-black uppercase text-white/20 mx-10">
+                            GLOBAL_PIONEERING • ELITE_STANDARDS • REGION_TO_WORLD • GLOBAL_PIONEERING • ELITE_STANDARDS • REGION_TO_WORLD
                         </span>
                     </div>
                 </div>
 
-                {/* Playing Card Grid */}
-                <section className="flex-1 p-8 lg:p-20">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {/* Course Grid */}
+                <section className="flex-1 p-8 lg:p-24 bg-smoke/50">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                         {courses.map((course, idx) => (
-                            <Card
+                            <motion.div
                                 key={course.id}
-                                className={cn(
-                                    "p-0 border-4 border-black overflow-hidden flex flex-col group transition-all duration-300 hover:translate-x-[-8px] hover:translate-y-[-8px] hover:shadow-hard-xl",
-                                    course.color,
-                                    course.color === "bg-primary" ? "text-white" : "text-black",
-                                    idx % 2 === 0 ? "rotate-[1deg]" : "rotate-[-1deg]"
-                                )}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
                             >
-                                <div className="bg-black text-white p-4 flex justify-between items-center border-b-4 border-black">
-                                    <span className="font-mono text-xs font-bold uppercase tracking-widest">COURSE_ID: {course.id.toUpperCase()}</span>
-                                    <span className="bg-white text-black px-2 py-1 text-[10px] font-black uppercase">{course.duration}</span>
-                                </div>
+                                <Card className="border-2 border-noir bg-white overflow-hidden group transition-all duration-500 hover:shadow-glow hover:-translate-y-2 flex flex-col h-full rounded-[var(--radius-card)]">
+                                    <div className="bg-noir text-white p-5 flex justify-between items-center border-b-2 border-noir">
+                                        <span className="font-mono text-[10px] font-black uppercase tracking-[0.3em] text-white/40">REF_{course.id.toUpperCase()}</span>
+                                        <span className="bg-primary text-white px-3 py-1 text-[9px] font-black uppercase tracking-widest">{course.duration}</span>
+                                    </div>
 
-                                <div className="p-10 flex-1 space-y-8">
-                                    <div className="flex justify-between items-start">
-                                        <div className="bg-white p-4 border-4 border-black shadow-hard group-hover:rotate-12 transition-transform">
-                                            <course.icon className="w-12 h-12 text-black" />
+                                    <div className="p-12 flex-1 space-y-10">
+                                        <div className="flex justify-between items-start">
+                                            <div className="bg-smoke p-5 border border-noir/10 group-hover:bg-primary group-hover:text-white transition-all duration-500">
+                                                <course.icon className="w-10 h-10" />
+                                            </div>
+                                            <div className="text-noir/10 text-6xl font-black">0{idx + 1}</div>
+                                        </div>
+
+                                        <div className="space-y-6">
+                                            <h3 className="text-5xl font-heading font-black uppercase tracking-tighter leading-none text-noir">
+                                                {course.title}
+                                            </h3>
+                                            <p className="font-bold text-xl leading-snug text-noir/60 uppercase tracking-tight border-l-4 border-primary pl-6">
+                                                {course.description}
+                                            </p>
+                                        </div>
+
+                                        <div className="space-y-5 pt-10 border-t border-noir/5">
+                                            <div className="grid grid-cols-1 gap-y-4">
+                                                {course.features.map((feature, fIdx) => (
+                                                    <div key={fIdx} className="flex items-center gap-3 text-[11px] font-black text-noir uppercase tracking-widest">
+                                                        <CheckCircle2 className="w-4 h-4 text-primary" /> {feature}
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-4">
-                                        <h3 className="text-4xl font-heading font-black uppercase tracking-tighter leading-none">
-                                            {course.title}
-                                        </h3>
-                                        <p className="font-bold text-xl leading-snug border-l-4 border-black/20 pl-4 group-hover:border-black transition-colors">
-                                            {course.description}
-                                        </p>
+                                    <div className="p-6 border-t-2 border-noir/5 bg-smoke/30 flex flex-col sm:flex-row gap-4">
+                                        <Button variant="accent" className="w-full h-14" magnetic>DOWNLOAD_SPEC</Button>
+                                        <Button variant="outline" className="w-full h-14" magnetic>ENROLL_NOW</Button>
                                     </div>
-
-                                    <div className="space-y-4 pt-4 border-t-2 border-black/20">
-                                        <h4 className="text-sm font-black uppercase tracking-widest">Training Modules:</h4>
-                                        <div className="grid grid-cols-1 gap-y-3">
-                                            {course.features.map((feature, fIdx) => (
-                                                <div key={fIdx} className="flex items-center text-lg font-bold">
-                                                    <span className="w-4 h-4 bg-black mr-4 rotate-45" /> {feature}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="p-4 border-t-4 border-black bg-white flex flex-col sm:flex-row gap-4">
-                                    <Button variant="default" className="w-full text-xl group-hover:bg-hot-pink transition-colors">GET SYLLABUS</Button>
-                                    <Button variant="outline" className="w-full text-xl">PROCEED TO APPLY</Button>
-                                </div>
-                            </Card>
+                                </Card>
+                            </motion.div>
                         ))}
                     </div>
                 </section>
             </div>
 
-            {/* Placement Section - Redesigned as a Newspaper Clipping */}
-            <section className="bg-accent border-b-8 border-black p-12 lg:p-32 flex flex-col items-center">
-                <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-                    <div className="lg:col-span-8 space-y-12">
-                        <div className="inline-block bg-black text-white px-8 py-2 font-heading font-black text-4xl rotate-[-2deg] shadow-hard">
-                            EXTRA! EXTRA!
-                        </div>
-                        <h2 className="text-7xl lg:text-9xl font-heading font-black uppercase leading-none tracking-tighter">
-                            GRADUATES <span className="text-primary italic">DEPLOYED</span> GLOBALLY
-                        </h2>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                            {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                                <div key={i} className="aspect-square bg-white border-4 border-black p-4 flex items-center justify-center shadow-hard grayscale transition-all hover:grayscale-0 hover:rotate-12">
-                                    <div className="w-full h-full bg-slate-200 border-2 border-dashed border-black/20 flex items-center justify-center font-mono text-[8px] text-center uppercase">
-                                        LOGO_STUB_{i}
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+            {/* Recruitment Section */}
+            <section className="bg-noir py-32 border-b border-noir overflow-hidden relative">
+                <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none"
+                    style={{ backgroundImage: "radial-gradient(#fff 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
-                    <div className="lg:col-span-4 bg-white border-4 border-black p-10 shadow-hard-xl space-y-8 rotate-[1deg]">
-                        <h3 className="text-3xl font-heading font-black uppercase border-b-4 border-black pb-4">PLACEMENT_LOG</h3>
-                        <ul className="space-y-6">
-                            {[
-                                { title: "LIFETIME SUPPORT", desc: "Access to our network even years after graduation." },
-                                { title: "MOCK SESSIONS", desc: "Special drills for international airline interviews." },
-                                { title: "SOFT SKILLS", desc: "Dedicated hours for voice and accent training." }
-                            ].map((item, i) => (
-                                <li key={i} className="space-y-2">
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-4 h-4 bg-primary border-2 border-black" />
-                                        <span className="font-heading font-black uppercase text-xl">{item.title}</span>
-                                    </div>
-                                    <p className="font-bold text-black/60 pl-6 leading-tight">{item.desc}</p>
-                                </li>
+                <div className="container mx-auto px-6 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+                        <div className="lg:col-span-12 mb-12">
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="inline-flex items-center gap-3 bg-white/10 text-white px-4 py-1 text-[10px] font-black uppercase tracking-[0.3em] mb-10"
+                            >
+                                <div className="w-2 h-2 bg-primary animate-pulse" />
+                                PLACEMENT_OPERATIONS
+                            </motion.div>
+                            <motion.h2
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="text-7xl lg:text-[10rem] font-heading font-black uppercase leading-[0.85] tracking-tighter text-white"
+                            >
+                                GLOBAL <br />
+                                <span className="text-primary italic">DEPLOYMENT.</span>
+                            </motion.h2>
+                        </div>
+
+                        <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                            {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: i * 0.05 }}
+                                    className="aspect-square bg-white/5 border border-white/10 p-6 flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 hover:bg-white/10 transition-all duration-500"
+                                >
+                                    <div className="font-mono text-[9px] text-white/20 uppercase tracking-[0.3em]">AIRLINE_{i}</div>
+                                </motion.div>
                             ))}
-                        </ul>
-                        <Button variant="neon" size="lg" className="w-full text-2xl h-20 shadow-hard-lg">JOIN MISSION</Button>
+                        </div>
+
+                        <motion.div
+                            initial={{ opacity: 0, x: 30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="lg:col-span-4 bg-white p-12 border-2 border-noir shadow-glow flex flex-col"
+                        >
+                            <h3 className="text-4xl font-heading font-black uppercase border-b-2 border-noir pb-6 mb-8 text-noir">DEPT_LOGS</h3>
+                            <div className="space-y-8 mb-12">
+                                {[
+                                    { title: "LIFETIME_RECRUIT", desc: "Long-term partnership with major international hubs." },
+                                    { title: "SIMULATION_DRILLS", desc: "Advanced mock interview protocols for global airlines." },
+                                    { title: "ELITE_COMMUNICATION", desc: "Surgical voice and accent engineering sessions." }
+                                ].map((item, i) => (
+                                    <div key={i} className="space-y-3">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-3 h-3 bg-primary border border-noir" />
+                                            <span className="font-black uppercase text-xs text-noir tracking-widest">{item.title}</span>
+                                        </div>
+                                        <p className="font-bold text-noir/40 uppercase text-[11px] leading-snug pl-6">{item.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <Button variant="accent" size="lg" magnetic className="h-24 text-2xl mt-auto">JOIN_MISSION</Button>
+                        </motion.div>
                     </div>
                 </div>
             </section>

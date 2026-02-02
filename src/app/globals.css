@@ -4,29 +4,32 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: #1152d4;
-  --color-primary-600: #0d3fa8;
-  --color-primary-400: #3a7ff2;
-  --color-yellow: #ffc20e;
-  --color-neon-green: #39ff14;
-  --color-hot-pink: #ff1493;
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-primary-light: #818cf8;
+  --color-accent: #6366f1;
+  --color-noir: #0a0a0a;
+  --color-smoke: #f4f4f5;
+  --color-neon-green: #22c55e;
+  --color-hot-pink: #ec4899;
+
   --color-background: #ffffff;
-  --color-foreground: #000000;
-  --color-muted: #64748b;
-  --color-surface: #f8fafc;
-  --color-border: #000000;
+  --color-foreground: #0a0a0a;
+  --color-border: #0a0a0a;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui;
   --font-heading: var(--font-space-grotesk), var(--font-outfit), var(--font-inter), ui-sans-serif, system-ui;
 
-  --radius-btn: 0px;
-  --radius-card: 0px;
+  --radius-btn: 2px;
+  --radius-card: 4px;
 
-  --shadow-hard: 4px 4px 0px 0px rgba(0, 0, 0, 1);
-  --shadow-hard-lg: 8px 8px 0px 0px rgba(0, 0, 0, 1);
-  --shadow-hard-xl: 12px 12px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-hard: 2px 2px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-hard-lg: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+  --shadow-hard-xl: 8px 8px 0px 0px rgba(0, 0, 0, 1);
 
-  --animate-marquee: marquee 25s linear infinite;
+  --shadow-glow: 0 0 20px rgba(79, 70, 229, 0.3);
+
+  --animate-marquee: marquee 30s linear infinite;
 
   @keyframes marquee {
     from {

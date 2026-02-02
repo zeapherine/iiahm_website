@@ -21,8 +21,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "IAN Institute | Transforming Lives, Building Global Careers",
-  description: "The gateway to international opportunities in Hospitality and Aviation for the talented youth of Northeast India.",
+  title: "IIAHM | International Institute of Aviation and Hotel Management",
+  description: "The premier gateway to international careers in Aviation and Hotel Management for the talented youth of Northeast India.",
 };
 
 export default function RootLayout({
