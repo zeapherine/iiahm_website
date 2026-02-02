@@ -36,69 +36,67 @@ const programs = [
 
 export function Programs() {
     return (
-        <section className="bg-smoke py-32 overflow-hidden">
+        <section className="bg-slate-50 py-32 overflow-hidden">
             <div className="container mx-auto px-6">
-                <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-                    <div className="space-y-6">
+                <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
+                    <div className="space-y-4">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-3 bg-noir text-white px-4 py-1 text-[10px] font-black uppercase tracking-[0.3em]"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider"
                         >
-                            <div className="w-2 h-2 bg-primary animate-pulse" />
-                            CORE_CURRICULUM
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                            Core Curriculum
                         </motion.div>
                         <motion.h2
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="font-heading text-7xl font-black uppercase leading-[0.85] tracking-tighter text-noir md:text-[8rem] lg:text-[10rem]"
+                            className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-primary"
                         >
-                            ELITE <span className="text-primary italic">TRACKS</span>
+                            Elite <span className="text-accent">Career Tracks</span>
                         </motion.h2>
                     </div>
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
-                        className="max-w-md text-noir/60 font-bold uppercase tracking-tight text-xl leading-snug"
+                        transition={{ delay: 0.2 }}
+                        className="max-w-md text-slate-500 text-lg leading-relaxed"
                     >
                         Our programs are engineered to meet global standards, ensuring every graduate is industry-ready and elite.
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+                <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
                     {programs.map((program, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 50 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1 }}
-                            className={cn(
-                                "group relative h-full flex flex-col",
-                                program.size === "large" ? "lg:col-span-8" : "lg:col-span-4"
-                            )}
+                            className="group h-full"
                         >
-                            <Card className="flex-1 border-2 border-noir bg-white overflow-hidden rounded-[var(--radius-card)] transition-all duration-500 group-hover:shadow-glow group-hover:-translate-y-2 flex flex-col">
+                            <Card className="h-full border-0 ring-1 ring-slate-200 bg-white shadow-subtle hover:shadow-float transition-all duration-500 flex flex-col rounded-[1.5rem] overflow-hidden">
                                 {/* Image Container */}
-                                <div className="relative h-80 overflow-hidden bg-noir border-b-2 border-noir">
+                                <div className="relative h-64 overflow-hidden">
                                     <Image
                                         src={program.image}
                                         alt={program.title}
                                         fill
-                                        className="object-cover opacity-60 transition-transform duration-1000 group-hover:scale-105 group-hover:opacity-100 mix-blend-luminosity grayscale group-hover:grayscale-0"
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                                     <div className="absolute top-6 left-6 z-20">
-                                        <div className="bg-noir text-white w-12 h-12 flex items-center justify-center font-black text-xl border-2 border-white/20">
+                                        <div className="bg-white/90 backdrop-blur-md text-primary w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full shadow-sm">
                                             0{idx + 1}
                                         </div>
                                     </div>
-                                    <div className="absolute bottom-6 right-6 z-20 flex gap-2">
+                                    <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-wrap gap-2">
                                         {program.tags.map((tag, i) => (
-                                            <span key={i} className="bg-white/90 backdrop-blur-md text-noir border border-noir px-2 py-1 text-[9px] font-black uppercase tracking-widest">
+                                            <span key={i} className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full">
                                                 {tag}
                                             </span>
                                         ))}
@@ -106,70 +104,40 @@ export function Programs() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-10 flex-1 flex flex-col">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="p-3 bg-smoke border border-noir/10">
-                                            <program.icon className="h-8 w-8 text-primary" />
+                                <div className="p-8 flex-1 flex flex-col">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <div className="p-2.5 bg-blue-50 rounded-xl text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                                            <program.icon className="h-6 w-6" />
                                         </div>
-                                        <CardTitle className="font-heading text-4xl font-black uppercase tracking-tighter text-noir leading-none">
+                                        <h3 className="font-display text-2xl font-semibold text-primary group-hover:text-accent transition-colors">
                                             {program.title}
-                                        </CardTitle>
+                                        </h3>
                                     </div>
 
-                                    <p className="text-xl font-bold text-noir/70 uppercase tracking-tight leading-snug mb-10 border-l-4 border-primary pl-6">
+                                    <p className="text-slate-500 leading-relaxed mb-8">
                                         {program.description}
                                     </p>
 
-                                    <div className="mt-auto pt-10 border-t border-noir/5 flex items-center justify-between">
-                                        <div className="flex flex-col">
-                                            <span className="text-[10px] font-black text-noir/40 uppercase tracking-[0.2em]">Duration</span>
-                                            <span className="text-sm font-black text-noir uppercase">12 MONTHS_INTENSIVE</span>
-                                        </div>
+                                    <div className="mt-auto border-t border-slate-100 pt-6 flex items-center justify-between">
+                                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">12 Months</span>
                                         <Button
                                             variant="ghost"
                                             size="sm"
-                                            className="group-hover:text-primary transition-colors"
+                                            className="text-primary hover:text-accent hover:bg-transparent p-0 font-medium"
                                         >
-                                            SYLLABUS_V1.0 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                            View Syllabus <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                                         </Button>
                                     </div>
                                 </div>
                             </Card>
                         </motion.div>
                     ))}
+                </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="lg:col-span-12 flex flex-col md:flex-row items-center justify-between gap-12 p-16 bg-noir text-white border-2 border-noir mt-12 relative overflow-hidden group/cta"
-                    >
-                        <div className="absolute inset-0 z-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] pointer-events-none" />
-                        <div className="relative z-10 space-y-6">
-                            <h3 className="text-5xl md:text-7xl font-heading font-black uppercase tracking-tighter leading-[0.85]">
-                                SECURE YOUR <br />
-                                <span className="text-primary italic">GLOBAL_IDENTITY</span>
-                            </h3>
-                            <div className="flex flex-wrap gap-4">
-                                {["Placement_Guarantee", "International_Liaison", "Surgical_Precision"].map((item, i) => (
-                                    <div key={i} className="flex items-center gap-2 text-primary">
-                                        <CheckCircle2 className="w-4 h-4" />
-                                        <span className="text-[10px] font-black uppercase tracking-widest">{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className="relative z-10">
-                            <Button
-                                variant="accent"
-                                size="lg"
-                                magnetic
-                                className="text-2xl h-24 px-16 shadow-glow"
-                            >
-                                START ENROLLMENT
-                            </Button>
-                        </div>
-                    </motion.div>
+                <div className="mt-16 text-center">
+                    <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-slate-300 text-slate-600 hover:text-primary hover:border-primary">
+                        View All Programs
+                    </Button>
                 </div>
             </div>
         </section>
