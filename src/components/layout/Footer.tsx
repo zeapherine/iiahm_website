@@ -13,7 +13,7 @@ export default function Footer() {
     }, []);
 
     return (
-        <footer className="bg-slate-900 text-slate-300 py-20 relative overflow-hidden">
+        <footer className="bg-primary/95 dark:bg-primary-dark text-slate-300 py-20 relative overflow-hidden transition-colors">
             {/* Background Pattern */}
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-[0.03]">
                 <svg className="absolute w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -63,7 +63,7 @@ export default function Footer() {
                             ].map((link, i) => (
                                 <li key={i}>
                                     <Link href={link.href} className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
-                                        <ChevronRight className="w-3 h-3 mr-2 text-slate-600" />
+                                        <ChevronRight className="w-3 h-3 mr-2 text-white/20" />
                                         {link.name}
                                     </Link>
                                 </li>
@@ -83,7 +83,7 @@ export default function Footer() {
                             ].map((link, i) => (
                                 <li key={i}>
                                     <Link href="/programs" className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
-                                        <ChevronRight className="w-3 h-3 mr-2 text-slate-600" />
+                                        <ChevronRight className="w-3 h-3 mr-2 text-white/20" />
                                         {link}
                                     </Link>
                                 </li>
@@ -111,7 +111,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="mt-20 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-slate-500 text-xs">
                         © {year} IIAHM. All rights reserved.
                     </p>

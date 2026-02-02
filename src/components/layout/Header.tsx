@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
 
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+
 const navLinks = [
     { name: "Home", href: "/" },
     { name: "Programs", href: "/programs" },
@@ -55,8 +57,8 @@ export default function Header() {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
                     isScrolled || isOpen
-                        ? "bg-white shadow-subtle py-4"
-                        : "bg-white/80 backdrop-blur-md py-5"
+                        ? "bg-background shadow-subtle py-4"
+                        : "bg-background/80 backdrop-blur-md py-5"
                 )}
             >
                 <nav className="container mx-auto px-6 flex items-center justify-between">
@@ -66,7 +68,7 @@ export default function Header() {
                     >
                         <span className={cn(
                             "text-xl md:text-2xl font-heading font-black tracking-tight",
-                            isScrolled ? "text-slate-900" : "text-slate-900"
+                            "text-foreground"
                         )}>
                             IIAHM
                         </span>
@@ -74,7 +76,7 @@ export default function Header() {
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-12">
+                    <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -83,7 +85,7 @@ export default function Header() {
                                     "text-sm font-medium tracking-wide transition-all relative py-1",
                                     pathname === link.href
                                         ? "text-accent font-semibold"
-                                        : "text-slate-600 hover:text-slate-900"
+                                        : "text-muted-foreground hover:text-foreground"
                                 )}
                             >
                                 {link.name}
@@ -95,23 +97,29 @@ export default function Header() {
                                 )}
                             </Link>
                         ))}
-                        <Button
-                            variant="default"
-                            size="sm"
-                            className="hidden md:flex px-6 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all"
-                            onClick={() => setShowPopup(true)}
-                        >
-                            Enquire Now
-                        </Button>
+                        <div className="flex items-center gap-4">
+                            <ThemeToggle />
+                            <Button
+                                variant="default"
+                                size="sm"
+                                className="px-6 rounded-full shadow-lg shadow-accent/20 hover:shadow-accent/30 transition-all font-semibold"
+                                onClick={() => setShowPopup(true)}
+                            >
+                                Enquire Now
+                            </Button>
+                        </div>
                     </div>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden text-slate-800 p-2 relative z-50"
-                        onClick={() => setIsOpen(!isOpen)}
-                    >
-                        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-                    </button>
+                    {/* Mobile Menu Button - and ThemeToggle for mobile */}
+                    <div className="flex items-center gap-2 md:hidden">
+                        <ThemeToggle />
+                        <button
+                            className="text-foreground p-2 relative z-50"
+                            onClick={() => setIsOpen(!isOpen)}
+                        >
+                            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                        </button>
+                    </div>
                 </nav>
 
                 {/* Mobile Menu Overlay */}
@@ -141,7 +149,7 @@ export default function Header() {
                                     }
                                 }
                             }}
-                            className="fixed inset-0 z-40 top-0 md:hidden bg-white border-t border-slate-100 pt-24"
+                            className="fixed inset-0 z-40 top-0 md:hidden bg-background border-t border-border pt-24"
                         >
                             <div className="flex flex-col p-8 space-y-6">
                                 {navLinks.map((link) => (
@@ -155,7 +163,7 @@ export default function Header() {
                                         <Link
                                             href={link.href}
                                             onClick={() => setIsOpen(false)}
-                                            className="text-2xl font-heading font-medium text-slate-800 hover:text-accent transition-colors block"
+                                            className="text-2xl font-heading font-medium text-foreground hover:text-accent transition-colors block"
                                         >
                                             {link.name}
                                         </Link>

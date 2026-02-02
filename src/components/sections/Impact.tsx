@@ -16,9 +16,9 @@ export function Impact() {
     const ref = useRef(null);
 
     return (
-        <section ref={ref} className="bg-slate-900 py-32 overflow-hidden relative text-white">
+        <section ref={ref} className="bg-primary/95 dark:bg-primary-dark py-32 overflow-hidden relative text-white">
             {/* Background Pattern - subtle dots */}
-            <div className="absolute inset-0 z-0 opacity-[0.1]"
+            <div className="absolute inset-0 z-0 opacity-[0.05]"
                 style={{ backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
             <div className="container mx-auto px-6 relative z-10">
@@ -27,7 +27,7 @@ export function Impact() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-slate-300 text-xs font-semibold uppercase tracking-wider mb-6"
+                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-semibold uppercase tracking-wider mb-6"
                     >
                         <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                         Our Track Record
@@ -48,7 +48,7 @@ export function Impact() {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg text-slate-400 max-w-2xl leading-relaxed"
+                        className="text-lg text-slate-300/80 max-w-2xl leading-relaxed"
                     >
                         We bridge the gap between local talent and global opportunities through rigorous, world-class training standards.
                     </motion.p>
@@ -69,7 +69,7 @@ export function Impact() {
                                 <div className="p-3 bg-white/5 rounded-xl text-accent group-hover:scale-110 transition-transform">
                                     <stat.icon className="h-6 w-6" />
                                 </div>
-                                <div className="text-xs font-medium text-slate-500 bg-white/5 px-2 py-1 rounded-md">
+                                <div className="text-xs font-medium text-slate-400 bg-white/5 px-2 py-1 rounded-md tracking-widest">
                                     2025
                                 </div>
                             </div>
@@ -78,7 +78,7 @@ export function Impact() {
                                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                             </div>
 
-                            <p className="text-sm font-medium text-slate-400 uppercase tracking-widest">
+                            <p className="text-sm font-medium text-slate-300/60 uppercase tracking-widest">
                                 {stat.label}
                             </p>
                         </motion.div>

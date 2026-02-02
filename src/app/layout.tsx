@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import { LoadingBar } from "@/components/ui/LoadingBar";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,19 +36,21 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${outfit.variable} ${spaceGrotesk.variable} font-sans antialiased text-foreground`}
+        className={`${inter.variable} ${outfit.variable} ${spaceGrotesk.variable} font-sans antialiased text-foreground bg-background`}
         suppressHydrationWarning
       >
-        <Suspense fallback={null}>
-          <LoadingBar />
-        </Suspense>
-        <Header />
-        <main className="min-h-screen">
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </main>
-        <Footer />
+        <ThemeProvider>
+          <Suspense fallback={null}>
+            <LoadingBar />
+          </Suspense>
+          <Header />
+          <main className="min-h-screen">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

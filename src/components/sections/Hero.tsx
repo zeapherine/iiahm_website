@@ -43,7 +43,7 @@ export function Hero() {
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.2 }}
-                            className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
+                            className="inline-flex items-center gap-2 bg-muted border border-border text-muted-foreground px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
                         >
                             <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                             International Standards. Global Careers.
@@ -53,10 +53,10 @@ export function Hero() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight text-primary leading-[1.1]"
+                            className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight text-foreground leading-[1.1]"
                         >
                             Elevate Your <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-accent">
                                 Professional Future.
                             </span>
                         </motion.h1>
@@ -65,7 +65,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
-                            className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-lg"
+                            className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg"
                         >
                             Join the premier institute for Aviation and Hotel Management.
                             Where academic rigor meets industry elegance.
@@ -80,7 +80,7 @@ export function Hero() {
                             <Button
                                 variant="default"
                                 size="lg"
-                                className="h-14 px-8 rounded-full text-base font-medium shadow-xl shadow-blue-900/10 hover:shadow-blue-900/20 transition-all w-full sm:w-auto"
+                                className="h-14 px-8 rounded-full text-base font-medium shadow-xl shadow-accent/10 hover:shadow-accent/20 transition-all w-full sm:w-auto"
                                 onClick={() => setShowPopup(true)}
                             >
                                 Start Application
@@ -90,7 +90,7 @@ export function Hero() {
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="h-14 px-8 rounded-full text-base font-medium border-slate-200 hover:bg-slate-50 text-slate-600 w-full"
+                                    className="h-14 px-8 rounded-full text-base font-medium border-border hover:bg-muted text-muted-foreground w-full"
                                 >
                                     Explore Programs
                                 </Button>
@@ -102,15 +102,15 @@ export function Hero() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.7 }}
-                            className="pt-8 flex items-center gap-6 text-sm text-slate-400 font-medium"
+                            className="pt-8 flex flex-wrap items-center gap-6 text-sm text-foreground/60 font-medium"
                         >
                             <div className="flex items-center gap-2">
                                 <Shield className="w-4 h-4 text-accent" />
-                                ISO 9001:2015 Certified
+                                <span className="text-foreground/80">ISO 9001:2015 Certified</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Globe className="w-4 h-4 text-accent" />
-                                Global Placements
+                                <span className="text-foreground/80">Global Placements</span>
                             </div>
                         </motion.div>
                     </div>
@@ -122,7 +122,7 @@ export function Hero() {
                             initial={{ opacity: 0, rotateY: 10, translateZ: -50 }}
                             animate={{ opacity: 1, rotateY: 0, translateZ: 0 }}
                             transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
-                            className="absolute inset-0 bg-slate-100 rounded-[2rem] border border-white/40 shadow-2xl overflow-hidden"
+                            className="absolute inset-0 bg-muted rounded-[2rem] border border-border shadow-2xl overflow-hidden"
                         >
                             {/* Main Hero Image */}
                             <div className="absolute inset-0 z-0">
@@ -144,14 +144,14 @@ export function Hero() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 1 }}
-                                className="absolute bottom-10 left-8 z-10 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white flex items-center gap-4 max-w-[200px]"
+                                className="absolute bottom-10 left-8 z-10 bg-background/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-border flex items-center gap-4 max-w-[200px]"
                             >
-                                <div className="bg-blue-50 p-2.5 rounded-full text-accent">
+                                <div className="bg-accent/10 p-2.5 rounded-full text-accent">
                                     <Shield className="w-6 h-6" />
                                 </div>
                                 <div>
-                                    <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Accredited</p>
-                                    <p className="text-sm font-semibold text-primary">ISO 9001:2015<br />Certified</p>
+                                    <p className="text-[10px] uppercase font-bold text-muted-foreground tracking-wider">Accredited</p>
+                                    <p className="text-sm font-semibold text-foreground">ISO 9001:2015<br />Certified</p>
                                 </div>
                             </motion.div>
 
@@ -160,13 +160,13 @@ export function Hero() {
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 1.2 }}
-                                className="absolute top-10 right-8 z-10 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4"
+                                className="absolute top-10 right-8 z-10 bg-primary/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-primary-foreground/10 flex items-center gap-4"
                             >
                                 <div className="text-right">
-                                    <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Placements</p>
-                                    <p className="text-xl font-bold text-white">500+</p>
+                                    <p className="text-[10px] uppercase font-bold text-primary-foreground/70 tracking-wider">Placements</p>
+                                    <p className="text-xl font-bold text-primary-foreground">500+</p>
                                 </div>
-                                <div className="bg-accent p-2.5 rounded-full text-white">
+                                <div className="bg-accent p-2.5 rounded-full text-accent-foreground">
                                     <Globe className="w-6 h-6" />
                                 </div>
                             </motion.div>

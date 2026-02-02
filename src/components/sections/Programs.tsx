@@ -39,7 +39,7 @@ const programs = [
 
 export function Programs() {
     return (
-        <section className="bg-slate-50 py-32 overflow-hidden">
+        <section className="bg-muted/30 py-32 overflow-hidden">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
                     <div className="space-y-4">
@@ -47,7 +47,7 @@ export function Programs() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background border border-border text-muted-foreground text-xs font-semibold uppercase tracking-wider"
                         >
                             <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                             Core Curriculum
@@ -56,7 +56,7 @@ export function Programs() {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-primary"
+                            className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-foreground"
                         >
                             Elite <span className="text-accent">Career Tracks</span>
                         </motion.h2>
@@ -66,7 +66,7 @@ export function Programs() {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="max-w-md text-slate-500 text-lg leading-relaxed"
+                        className="max-w-md text-muted-foreground text-lg leading-relaxed"
                     >
                         Our programs are engineered to meet global standards, ensuring every graduate is industry-ready and elite.
                     </motion.p>
@@ -82,7 +82,7 @@ export function Programs() {
                             transition={{ delay: idx * 0.1 }}
                             className="group h-full"
                         >
-                            <Card className="h-full border-0 ring-1 ring-slate-200 bg-white shadow-subtle hover:shadow-float transition-all duration-500 flex flex-col rounded-[1.5rem] overflow-hidden">
+                            <Card className="h-full border-0 ring-1 ring-border bg-card shadow-subtle hover:shadow-float transition-all duration-500 flex flex-col rounded-[1.5rem] overflow-hidden">
                                 {/* Image Container */}
                                 <div className="relative h-56 md:h-64 overflow-hidden">
                                     <Image
@@ -93,7 +93,7 @@ export function Programs() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                                     <div className="absolute top-6 left-6 z-20">
-                                        <div className="bg-white/90 backdrop-blur-md text-primary w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full shadow-sm">
+                                        <div className="bg-background/90 backdrop-blur-md text-foreground w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full shadow-sm">
                                             0{idx + 1}
                                         </div>
                                     </div>
@@ -109,25 +109,25 @@ export function Programs() {
                                 {/* Content */}
                                 <div className="p-6 lg:p-8 flex-1 flex flex-col">
                                     <div className="flex items-center gap-4 mb-4">
-                                        <div className="p-2.5 bg-blue-50 rounded-xl text-accent group-hover:bg-accent group-hover:text-white transition-colors">
+                                        <div className="p-2.5 bg-accent/10 rounded-xl text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                             <program.icon className="h-6 w-6" />
                                         </div>
-                                        <h3 className="font-display text-2xl font-semibold text-primary group-hover:text-accent transition-colors">
+                                        <h3 className="font-display text-2xl font-semibold text-foreground group-hover:text-accent transition-colors">
                                             {program.title}
                                         </h3>
                                     </div>
 
-                                    <p className="text-slate-500 leading-relaxed mb-8">
+                                    <p className="text-muted-foreground leading-relaxed mb-8">
                                         {program.description}
                                     </p>
 
-                                    <div className="mt-auto border-t border-slate-100 pt-6 flex items-center justify-between">
-                                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">12 Months</span>
+                                    <div className="mt-auto border-t border-border pt-6 flex items-center justify-between">
+                                        <span className="text-xs font-bold text-muted-foreground/60 uppercase tracking-wider">12 Months</span>
                                         <Button
                                             asChild
                                             variant="ghost"
                                             size="sm"
-                                            className="text-primary hover:text-accent hover:bg-transparent p-0 font-medium"
+                                            className="text-foreground hover:text-accent hover:bg-transparent p-0 font-medium"
                                         >
                                             <Link href={`/programs/${program.id}`}>
                                                 View Syllabus <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -142,7 +142,7 @@ export function Programs() {
 
                 <div className="mt-16 text-center">
                     <Link href="/programs">
-                        <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-slate-300 text-slate-600 hover:text-primary hover:border-primary">
+                        <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-border text-muted-foreground hover:text-foreground hover:border-foreground">
                             View All Programs
                         </Button>
                     </Link>
