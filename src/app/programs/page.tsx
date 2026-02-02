@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { Plane, Building2, Utensils, Headphones, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -44,7 +45,7 @@ const courses = [
 
 export default function ProgramsPage() {
     return (
-        <div className="flex flex-col bg-slate-50 min-h-screen pt-24 overflow-x-hidden">
+        <div className="flex flex-col bg-transparent min-h-screen pt-24 overflow-x-hidden">
             {/* Header */}
             <section className="container mx-auto px-4 md:px-6 py-24 text-center">
                 <motion.div
@@ -144,13 +145,19 @@ export default function ProgramsPage() {
                 </div>
 
                 <div className="container mx-auto px-4 md:px-6 relative z-10">
-                    <div className="text-center mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-center mb-20"
+                    >
                         <span className="text-accent font-semibold tracking-wider uppercase text-sm">Career Trajectory</span>
                         <h2 className="text-4xl md:text-5xl font-display font-semibold mt-4 mb-6">Global Career Partners.</h2>
                         <p className="text-slate-400 max-w-2xl mx-auto text-lg">
                             Graduates are placed in top-tier international airlines and 5-star hospitality chains.
                         </p>
-                    </div>
+                    </motion.div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 opacity-70">
                         {/* Placeholder Logos - Clean Typography for now */}

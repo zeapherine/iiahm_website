@@ -30,7 +30,7 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="flex flex-col bg-slate-50 min-h-screen pt-24 overflow-x-hidden">
+        <div className="flex flex-col bg-transparent min-h-screen pt-24 overflow-x-hidden">
             {/* Background Narrative Element */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/50 -skew-x-12 transform origin-top translate-x-20 pointer-events-none hidden lg:block" />
 

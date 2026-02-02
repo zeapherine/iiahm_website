@@ -1,20 +1,31 @@
 "use client"
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
 import { ArrowRight, Globe, Shield } from "lucide-react";
 
 export function Hero() {
     const [showPopup, setShowPopup] = useState(false);
+    const heroRef = useRef<HTMLElement>(null);
+
+    const { scrollYProgress } = useScroll({
+        target: heroRef,
+        offset: ["start start", "end start"]
+    });
+
+    const imageY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+    const badgeY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+    const textY = useTransform(scrollYProgress, [0, 1], [0, -30]);
+    const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
     return (
         <>
             <ApplicationPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
-            <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-background pt-32 md:pt-40">
+            <section ref={heroRef} className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-transparent pt-32 md:pt-40">
                 {/* Abstract Aviation Curves Background */}
                 <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                     <svg className="absolute w-full h-full opacity-[0.03]" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -39,7 +50,7 @@ export function Hero() {
                 <div className="container relative z-10 mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
 
                     {/* Text Content */}
-                    <div className="text-left space-y-8">
+                    <motion.div style={{ y: textY, opacity }} className="text-left space-y-8">
                         <motion.div
                             initial={{ opacity: 0, y: 5 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -115,7 +126,7 @@ export function Hero() {
                                 <span className="text-foreground/80">Global Placements</span>
                             </div>
                         </motion.div>
-                    </div>
+                    </motion.div>
 
                     {/* Visual / Abstract Representation - Now Glass & Subtle */}
                     <div className="relative hidden lg:block h-[600px] w-full z-0 perspective-1000">
@@ -127,7 +138,7 @@ export function Hero() {
                             className="absolute inset-0 bg-muted rounded-[2rem] border border-border shadow-2xl overflow-hidden"
                         >
                             {/* Main Hero Image */}
-                            <div className="absolute inset-0 z-0">
+                            <motion.div style={{ y: imageY }} className="absolute inset-0 z-0">
                                 <Image
                                     src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?q=80&w=2560&auto=format&fit=crop"
                                     alt="Aviation Academy Students"
@@ -136,7 +147,7 @@ export function Hero() {
                                     priority
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                            </div>
+                            </motion.div>
 
                             {/* Abstract Gradient Overlay - Subtle Shimmer */}
                             <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-40"></div>

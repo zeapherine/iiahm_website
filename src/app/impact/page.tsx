@@ -13,7 +13,7 @@ const metrics = [
 
 export default function ImpactPage() {
     return (
-        <div className="flex flex-col bg-white min-h-screen pt-24 overflow-x-hidden">
+        <div className="flex flex-col bg-transparent min-h-screen pt-24 overflow-x-hidden">
             {/* Elegant Hero */}
             <section className="bg-slate-900 py-32 md:py-48 relative overflow-hidden text-white">
                 <div className="absolute inset-0 opacity-20 pointer-events-none">
@@ -49,7 +49,7 @@ export default function ImpactPage() {
             </section>
 
             {/* Refined Stats Grid */}
-            <section className="py-32 bg-white">
+            <section className="py-32 bg-transparent">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {metrics.map((item, i) => (
@@ -87,7 +87,14 @@ export default function ImpactPage() {
                                 { icon: Award, title: "Skill Certification", desc: "ISO 9001:2015 certified training standards." },
                                 { icon: Globe, title: "Global Network", desc: "Connecting local students to international opportunities." }
                             ].map((pillar, idx) => (
-                                <div key={idx} className="flex gap-6 items-start">
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    className="flex gap-6 items-start"
+                                >
                                     <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center shrink-0 text-accent">
                                         <pillar.icon className="w-6 h-6" />
                                     </div>
@@ -95,7 +102,7 @@ export default function ImpactPage() {
                                         <h4 className="font-semibold text-primary mb-2">{pillar.title}</h4>
                                         <p className="text-slate-500 text-sm leading-relaxed">{pillar.desc}</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
                     </div>
