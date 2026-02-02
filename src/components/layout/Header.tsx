@@ -57,8 +57,8 @@ export default function Header() {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
                     isScrolled || isOpen
-                        ? "bg-background shadow-subtle py-4"
-                        : "bg-background/80 backdrop-blur-md py-5"
+                        ? "bg-background/80 backdrop-blur-xl border-b border-border/50 py-4 shadow-subtle"
+                        : "bg-transparent py-5 border-b border-transparent"
                 )}
             >
                 <nav className="container mx-auto px-6 flex items-center justify-between">

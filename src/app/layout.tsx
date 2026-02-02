@@ -8,6 +8,7 @@ import PageTransition from "@/components/layout/PageTransition";
 import { LoadingBar } from "@/components/ui/LoadingBar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import DynamicBackground from "@/components/layout/DynamicBackground";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -41,17 +42,19 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <DynamicBackground />
-          <Suspense fallback={null}>
-            <LoadingBar />
-          </Suspense>
-          <Header />
-          <main className="min-h-screen">
-            <PageTransition>
-              {children}
-            </PageTransition>
-          </main>
-          <Footer />
+          <SmoothScrollProvider>
+            <DynamicBackground />
+            <Suspense fallback={null}>
+              <LoadingBar />
+            </Suspense>
+            <Header />
+            <main className="min-h-screen">
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </main>
+            <Footer />
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>

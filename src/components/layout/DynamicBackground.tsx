@@ -20,19 +20,19 @@ export default function DynamicBackground() {
 
     const bgColor = useTransform(
         smoothProgress,
-        [0, 0.33, 0.66, 1],
+        [0, 0.4, 0.8, 1],
         [
-            "var(--background)",
-            "var(--slate-50, #f8fafc)",
-            "var(--slate-100, #f1f5f9)",
-            "var(--background)"
+            "#ffffff",        // Start: Pure White
+            "#f0f9ff",        // Middle-Top: Soft Azure
+            "#f5f3ff",        // Middle-Bottom: Subtle Lavender
+            "#f8fafc"         // End: Slate-50
         ]
     );
 
     return (
         <motion.div
             style={{ backgroundColor: bgColor }}
-            className="fixed inset-0 -z-10 pointer-events-none transition-colors duration-1000"
+            className="fixed inset-0 -z-20 pointer-events-none transition-colors duration-1000"
         />
     );
 }

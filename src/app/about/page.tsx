@@ -38,11 +38,20 @@ const values = [
 export default function AboutPage() {
     const [showPopup, setShowPopup] = useState(false);
     const timelineRef = useRef<HTMLDivElement>(null);
+    const heroRef = useRef<HTMLDivElement>(null);
 
     const { scrollYProgress } = useScroll({
         target: timelineRef,
         offset: ["start 80%", "end center"]
     });
+
+    const { scrollYProgress: heroScroll } = useScroll({
+        target: heroRef,
+        offset: ["start start", "end start"]
+    });
+
+    const heroY = useTransform(heroScroll, [0, 1], [0, 250]);
+    const heroOpacity = useTransform(heroScroll, [0, 0.8], [1, 0]);
 
     const scaleY = useSpring(scrollYProgress, {
         stiffness: 100,
@@ -53,42 +62,55 @@ export default function AboutPage() {
     return (
         <>
             <ApplicationPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
-            <div className="flex flex-col bg-white min-h-screen pt-24 overflow-x-hidden">
+            <div className="flex flex-col bg-transparent min-h-screen pt-24 overflow-x-hidden">
                 {/* Mission Hero */}
-                <section className="container mx-auto px-4 md:px-6 py-32 text-center">
+                <section ref={heroRef} className="container mx-auto px-4 md:px-6 py-40 relative flex flex-col items-center justify-center min-h-[70vh]">
+                    {/* Decorative Parallax Background Elements */}
                     <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider mb-8"
+                        style={{ y: heroY, opacity: heroOpacity }}
+                        className="absolute inset-0 z-0 pointer-events-none"
                     >
-
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                        Institutional Heritage
+                        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl" />
+                        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
                     </motion.div>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-4xl sm:text-5xl md:text-7xl font-display font-semibold text-primary tracking-tight mb-8"
+                    <motion.div
+                        style={{ y: useTransform(heroScroll, [0, 1], [0, -40]) }}
+                        className="relative z-10 text-center"
                     >
-                        Building <span className="text-accent">Global Futures</span> <br />
-                        Since 2017.
-                    </motion.h1>
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider mb-8"
+                        >
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                            Institutional Heritage
+                        </motion.div>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed"
-                    >
-                        IIAHM was founded with a singular vision: to bridge the gap between local potential and international industry standards. We don&apos;t just train; we elevate careers.
-                    </motion.p>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-4xl sm:text-5xl md:text-8xl font-display font-semibold text-primary tracking-tight mb-8 leading-[1.05]"
+                        >
+                            Building <span className="text-accent underline decoration-slate-200 underline-offset-8">Global Futures</span> <br />
+                            Since 2017.
+                        </motion.h1>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-xl md:text-2xl text-slate-500 max-w-3xl mx-auto leading-relaxed"
+                        >
+                            IIAHM was founded with a singular vision: to bridge the gap between local potential and international industry standards. We don&apos;t just train; we elevate careers.
+                        </motion.p>
+                    </motion.div>
                 </section>
 
                 {/* Core Values */}
-                <section className="bg-slate-50 py-32">
+                <section className="py-32 relative">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                             {values.map((value, idx) => (
@@ -114,7 +136,7 @@ export default function AboutPage() {
 
                 {/* Timeline / Milestones */}
                 <section className="container mx-auto px-4 md:px-6 py-32">
-                    <div ref={timelineRef} className="max-w-4xl mx-auto space-y-24 relative">
+                    <div ref={timelineRef} className="max-w-4xl mx-auto space-y-48 relative">
                         {/* Vertical Line Container */}
                         <div className="absolute left-[2rem] md:left-1/2 top-0 bottom-0 w-px bg-slate-100 dark:bg-slate-800" >
                             {/* Filling Progress Line */}
