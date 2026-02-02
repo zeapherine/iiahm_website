@@ -8,19 +8,19 @@ import { motion, useMotionValue, useSpring } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-btn)] text-sm font-bold uppercase tracking-wider transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none border border-slate-700 active:scale-[0.98]",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-btn)] text-sm font-bold uppercase tracking-wider transition-all duration-300 ease-[0.16,1,0.3,1] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none border border-slate-700 active:scale-[0.99]",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-md hover:bg-primary/90 hover:shadow-lg border-primary",
-        destructive: "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90",
-        outline: "bg-transparent text-foreground border-border shadow-sm hover:bg-muted hover:border-border",
-        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
+        default: "bg-primary text-primary-foreground shadow-md hover:bg-primary/95 hover:shadow-lg border-primary hover:-translate-y-0.5",
+        destructive: "bg-destructive text-destructive-foreground shadow-md hover:bg-destructive/90 hover:-translate-y-0.5",
+        outline: "bg-transparent text-foreground border-border shadow-sm hover:bg-muted hover:border-border hover:-translate-y-0.5",
+        secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 hover:-translate-y-0.5",
         ghost: "border-transparent text-foreground hover:bg-muted hover:text-primary",
         link: "border-transparent text-primary underline-offset-4 hover:underline shadow-none",
-        accent: "bg-accent text-accent-foreground border-accent shadow-md hover:bg-accent/90 hover:shadow-glow",
+        accent: "bg-accent text-accent-foreground border-accent shadow-md hover:bg-accent/95 hover:shadow-glow hover:-translate-y-0.5",
         ghost_white: "border-white/30 text-white bg-white/5 hover:bg-white/10 backdrop-blur-sm",
-        neon: "bg-neon-green text-black border-4 border-black shadow-hard hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+        neon: "bg-neon-green text-black border-4 border-black shadow-hard hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none"
       },
       size: {
         default: "h-12 px-8 py-2",

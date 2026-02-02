@@ -44,28 +44,31 @@ export function Programs() {
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
                     <div className="space-y-4">
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background border border-border text-muted-foreground text-xs font-semibold uppercase tracking-wider"
                         >
+
                             <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                             Core Curriculum
                         </motion.div>
                         <motion.h2
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
+                            transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-foreground"
                         >
                             Elite <span className="text-accent">Career Tracks</span>
                         </motion.h2>
                     </div>
                     <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="max-w-md text-muted-foreground text-lg leading-relaxed"
                     >
                         Our programs are engineered to meet global standards, ensuring every graduate is industry-ready and elite.
@@ -76,13 +79,13 @@ export function Programs() {
                     {programs.map((program, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1 }}
+                            transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="group h-full"
                         >
-                            <Card className="h-full border-0 ring-1 ring-border bg-card shadow-subtle hover:shadow-float transition-all duration-500 flex flex-col rounded-[1.5rem] overflow-hidden">
+                            <Card className="h-full border-0 ring-1 ring-border bg-card shadow-subtle hover:shadow-float transition-all duration-700 ease-out flex flex-col rounded-[1.5rem] overflow-hidden hover:-translate-y-1">
                                 {/* Image Container */}
                                 <div className="relative h-56 md:h-64 overflow-hidden">
                                     <Image

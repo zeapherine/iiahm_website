@@ -30,29 +30,31 @@ export function Hero() {
                             strokeWidth="2"
                             initial={{ pathLength: 0, opacity: 0 }}
                             animate={{ pathLength: 1, opacity: 1 }}
-                            transition={{ duration: 3, ease: "easeInOut" }}
+                            transition={{ duration: 5, ease: [0.16, 1, 0.3, 1] }}
                         />
                     </svg>
                 </div>
+
 
                 <div className="container relative z-10 mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
 
                     {/* Text Content */}
                     <div className="text-left space-y-8">
                         <motion.div
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2 }}
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="inline-flex items-center gap-2 bg-muted border border-border text-muted-foreground px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
                         >
+
                             <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                             International Standards. Global Careers.
                         </motion.div>
 
                         <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.3 }}
+                            transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight text-foreground leading-[1.1]"
                         >
                             Elevate Your <br />
@@ -62,9 +64,9 @@ export function Hero() {
                         </motion.h1>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.4 }}
+                            transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg"
                         >
                             Join the premier institute for Aviation and Hotel Management.
@@ -72,9 +74,9 @@ export function Hero() {
                         </motion.p>
 
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5 }}
+                            transition={{ delay: 0.3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="flex flex-col sm:flex-row gap-4 pt-4"
                         >
                             <Button
@@ -119,9 +121,9 @@ export function Hero() {
                     <div className="relative hidden lg:block h-[600px] w-full z-0 perspective-1000">
                         {/* Floating Glass Cards */}
                         <motion.div
-                            initial={{ opacity: 0, rotateY: 10, translateZ: -50 }}
-                            animate={{ opacity: 1, rotateY: 0, translateZ: 0 }}
-                            transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
+                            initial={{ opacity: 0, scale: 0.98, rotateY: 5 }}
+                            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                            transition={{ delay: 0.4, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                             className="absolute inset-0 bg-muted rounded-[2rem] border border-border shadow-2xl overflow-hidden"
                         >
                             {/* Main Hero Image */}

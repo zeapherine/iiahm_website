@@ -22,8 +22,9 @@ export function AnimatedCounter({ value, duration = 2, suffix = "", className }:
     }, []);
 
     const springValue = useSpring(0, {
-        duration: duration * 1000,
-        bounce: 0,
+        stiffness: 40,
+        damping: 20,
+        mass: 1,
     });
 
     const displayValue = useTransform(springValue, (current) =>

@@ -38,10 +38,12 @@ export default function ContactPage() {
             <section className="relative container mx-auto px-4 md:px-6 py-20 lg:py-32">
                 <div className="max-w-5xl relative z-10">
                     <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-[0.2em] mb-8"
                     >
+
                         <MessageSquare className="w-3.5 h-3.5" />
                         Get in Touch
                     </motion.div>
@@ -49,7 +51,7 @@ export default function ContactPage() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
+                        transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black text-slate-900 leading-[0.9] tracking-tighter uppercase mb-12"
                     >
                         START YOUR <br />
@@ -57,9 +59,9 @@ export default function ContactPage() {
                     </motion.h1>
 
                     <motion.p
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
+                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-lg md:text-2xl font-medium text-slate-600 max-w-2xl leading-relaxed"
                     >
                         Our admissions team is here to guide you through every step of your career elevation. Reach out to our Kokrajhar campus for a personalized counseling session.
@@ -92,10 +94,11 @@ export default function ContactPage() {
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: i * 0.1 }}
-                                    className="p-8 bg-white rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-accent/30 transition-all group"
+                                    transition={{ delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    className="p-8 bg-white rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-accent/30 transition-all duration-500 ease-out group hover:-translate-y-1"
                                 >
-                                    <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all">
+
+                                    <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300">
                                         <item.icon className="w-6 h-6" />
                                     </div>
                                     <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">{item.label}</h4>
@@ -109,6 +112,7 @@ export default function ContactPage() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
+                            transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="p-8 bg-slate-900 text-white rounded-[32px] overflow-hidden relative"
                         >
                             <div className="absolute top-0 right-0 p-8 opacity-10">
@@ -133,9 +137,10 @@ export default function ContactPage() {
 
                     {/* Inquiry Form - Right Column */}
                     <motion.div
-                        initial={{ opacity: 0, y: 40 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="lg:col-span-8 order-1 lg:order-2"
                     >
                         <div className="bg-white rounded-[40px] p-8 md:p-12 lg:p-16 border border-slate-100 shadow-2xl shadow-slate-200/60 relative overflow-hidden">
@@ -242,8 +247,9 @@ export default function ContactPage() {
                                 </form>
                             ) : (
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    initial={{ opacity: 0, scale: 0.99 }}
                                     animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                     className="py-20 flex flex-col items-center text-center space-y-8"
                                 >
                                     <div className="w-24 h-24 bg-green-50 rounded-3xl flex items-center justify-center border border-green-100 shadow-xl shadow-green-100">

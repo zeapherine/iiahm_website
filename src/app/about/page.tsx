@@ -45,10 +45,12 @@ export default function AboutPage() {
                 {/* Mission Hero */}
                 <section className="container mx-auto px-4 md:px-6 py-32 text-center">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-500 text-xs font-semibold uppercase tracking-wider mb-8"
                     >
+
                         <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                         Institutional Heritage
                     </motion.div>
@@ -56,7 +58,7 @@ export default function AboutPage() {
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
+                        transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-4xl sm:text-5xl md:text-7xl font-display font-semibold text-primary tracking-tight mb-8"
                     >
                         Building <span className="text-accent">Global Futures</span> <br />
@@ -64,9 +66,9 @@ export default function AboutPage() {
                     </motion.h1>
 
                     <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.2 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed"
                     >
                         IIAHM was founded with a singular vision: to bridge the gap between local potential and international industry standards. We don&apos;t just train; we elevate careers.
@@ -80,13 +82,14 @@ export default function AboutPage() {
                             {values.map((value, idx) => (
                                 <motion.div
                                     key={idx}
-                                    initial={{ opacity: 0, y: 30 }}
+                                    initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
-                                    transition={{ delay: idx * 0.1 }}
-                                    className="bg-white p-10 rounded-2xl shadow-subtle hover:shadow-float transition-all duration-500 border border-slate-100 group"
+                                    transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                    className="bg-white p-10 rounded-2xl shadow-subtle hover:shadow-float transition-all duration-700 ease-out border border-slate-100 group hover:-translate-y-1"
                                 >
-                                    <div className="w-16 h-16 rounded-2xl bg-blue-50 text-accent flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+
+                                    <div className="w-16 h-16 rounded-2xl bg-blue-50 text-accent flex items-center justify-center mb-8 group-hover:bg-accent/10 transition-all duration-300">
                                         {value.icon}
                                     </div>
                                     <h3 className="text-2xl font-display font-semibold text-primary mb-4">{value.title.replace(/_/g, " ")}</h3>
@@ -109,7 +112,9 @@ export default function AboutPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
+                                transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                 className={cn(
+
                                     "relative flex flex-col md:flex-row gap-8 items-center",
                                     idx % 2 === 0 ? "md:flex-row-reverse text-left md:text-left" : "md:flex-row text-left md:text-right"
                                 )}
