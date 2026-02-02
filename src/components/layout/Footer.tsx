@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ChevronRight } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ChevronRight, Globe } from "lucide-react";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -24,10 +24,17 @@ export default function Footer() {
                             Building global careers in Aviation & Hospitality. The premier institute for professional excellence in Northeast India.
                         </p>
                         <div className="flex items-center space-x-4">
-                            {[Instagram, Linkedin, Twitter].map((Icon, i) => (
+                            {[
+                                { Icon: Instagram, href: "https://instagram.com/iiahm_official" },
+                                { Icon: Linkedin, href: "https://linkedin.com/school/iiahm" },
+                                { Icon: Twitter, href: "https://twitter.com/iiahm" },
+                                { Icon: Globe, href: "https://facebook.com/iiahm" } // Using Globe as fallback for FB if Lucide Facebook is missing or different
+                            ].map(({ Icon, href }, i) => (
                                 <Link
                                     key={i}
-                                    href="#"
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="p-2.5 bg-white/5 rounded-full text-slate-400 transition-all duration-300 hover:bg-accent hover:text-white"
                                 >
                                     <Icon className="w-5 h-5" />
@@ -40,11 +47,16 @@ export default function Footer() {
                     <div className="space-y-6">
                         <h3 className="text-white font-semibold text-lg">Quick Links</h3>
                         <ul className="space-y-3">
-                            {["Career Placement", "Student Stories", "About Us", "Contact"].map((link, i) => (
+                            {[
+                                { name: "Career Placement", href: "/impact" },
+                                { name: "Student Stories", href: "/about" },
+                                { name: "About Us", href: "/about" },
+                                { name: "Contact", href: "/contact" }
+                            ].map((link, i) => (
                                 <li key={i}>
-                                    <Link href="#" className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
+                                    <Link href={link.href} className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
                                         <ChevronRight className="w-3 h-3 mr-2 text-slate-600" />
-                                        {link}
+                                        {link.name}
                                     </Link>
                                 </li>
                             ))}
@@ -55,7 +67,12 @@ export default function Footer() {
                     <div className="space-y-6">
                         <h3 className="text-white font-semibold text-lg">Programs</h3>
                         <ul className="space-y-3">
-                            {["Aviation & Hostess", "Hotel Management", "Cabin Crew Services", "Hospitality Management"].map((link, i) => (
+                            {[
+                                "Aviation & Hostess",
+                                "Hotel Management",
+                                "Cabin Crew Services",
+                                "Hospitality Management"
+                            ].map((link, i) => (
                                 <li key={i}>
                                     <Link href="/programs" className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
                                         <ChevronRight className="w-3 h-3 mr-2 text-slate-600" />

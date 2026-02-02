@@ -1,169 +1,180 @@
 "use client"
 
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
 import { ArrowRight, Globe, Shield } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Hero() {
+    const [showPopup, setShowPopup] = useState(false);
+
     return (
-        <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-background pt-32 md:pt-40">
-            {/* Abstract Aviation Curves Background */}
-            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-                <svg className="absolute w-full h-full opacity-[0.03]" viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M0 100 C 20 0 50 0 100 100" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-primary" />
-                    <path d="M0 100 C 30 20 70 20 100 100" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-primary" />
-                </svg>
-                {/* Animated Flight Path */}
-                <svg className="absolute w-full h-full pointer-events-none z-0" style={{ opacity: 0.1 }}>
-                    <motion.path
-                        d="M-100,600 C400,500 800,100 1600,200"
-                        fill="none"
-                        stroke="#0ea5e9"
-                        strokeWidth="2"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: 1 }}
-                        transition={{ duration: 3, ease: "easeInOut" }}
-                    />
-                </svg>
-            </div>
-
-            <div className="container relative z-10 mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-
-                {/* Text Content */}
-                <div className="text-left space-y-8">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
-                    >
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                        International Standards. Global Careers.
-                    </motion.div>
-
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="font-display text-5xl md:text-7xl font-semibold tracking-tight text-primary leading-[1.1]"
-                    >
-                        Elevate Your <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                            Professional Future.
-                        </span>
-                    </motion.h1>
-
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-lg"
-                    >
-                        Join the premier institute for Aviation and Hotel Management.
-                        Where academic rigor meets industry elegance.
-                    </motion.p>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                        className="flex flex-wrap gap-4 pt-4"
-                    >
-                        <Button
-                            variant="default"
-                            size="lg"
-                            className="h-14 px-8 rounded-full text-base font-medium shadow-xl shadow-blue-900/10 hover:shadow-blue-900/20 transition-all"
-                        >
-                            Start Application
-                            <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="h-14 px-8 rounded-full text-base font-medium border-slate-200 hover:bg-slate-50 text-slate-600"
-                        >
-                            Explore Programs
-                        </Button>
-                    </motion.div>
-
-                    {/* Trust Indicators */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 0.7 }}
-                        className="pt-8 flex items-center gap-6 text-sm text-slate-400 font-medium"
-                    >
-                        <div className="flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-accent" />
-                            ISO 9001:2015 Certified
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <Globe className="w-4 h-4 text-accent" />
-                            Global Placements
-                        </div>
-                    </motion.div>
+        <>
+            <ApplicationPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+            <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-background pt-32 md:pt-40">
+                {/* Abstract Aviation Curves Background */}
+                <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                    <svg className="absolute w-full h-full opacity-[0.03]" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path d="M0 100 C 20 0 50 0 100 100" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-primary" />
+                        <path d="M0 100 C 30 20 70 20 100 100" stroke="currentColor" strokeWidth="0.5" fill="none" className="text-primary" />
+                    </svg>
+                    {/* Animated Flight Path */}
+                    <svg className="absolute w-full h-full pointer-events-none z-0" style={{ opacity: 0.1 }}>
+                        <motion.path
+                            d="M-100,600 C400,500 800,100 1600,200"
+                            fill="none"
+                            stroke="#0ea5e9"
+                            strokeWidth="2"
+                            initial={{ pathLength: 0, opacity: 0 }}
+                            animate={{ pathLength: 1, opacity: 1 }}
+                            transition={{ duration: 3, ease: "easeInOut" }}
+                        />
+                    </svg>
                 </div>
 
-                {/* Visual / Abstract Representation - Now Glass & Subtle */}
-                <div className="relative hidden lg:block h-[600px] w-full z-0 perspective-1000">
-                    {/* Floating Glass Cards */}
-                    <motion.div
-                        initial={{ opacity: 0, rotateY: 10, translateZ: -50 }}
-                        animate={{ opacity: 1, rotateY: 0, translateZ: 0 }}
-                        transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
-                        className="absolute inset-0 bg-slate-100 rounded-[2rem] border border-white/40 shadow-2xl overflow-hidden"
-                    >
-                        {/* Main Hero Image */}
-                        <div className="absolute inset-0 z-0">
-                            <Image
-                                src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?q=80&w=2560&auto=format&fit=crop"
-                                alt="Aviation Academy Students"
-                                fill
-                                className="object-cover transition-transform duration-1000 hover:scale-105"
-                                priority
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-                        </div>
+                <div className="container relative z-10 mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
 
-                        {/* Abstract Gradient Overlay - Subtle Shimmer */}
-                        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-40"></div>
+                    {/* Text Content */}
+                    <div className="text-left space-y-8">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.2 }}
+                            className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-slate-600 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
+                        >
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+                            International Standards. Global Careers.
+                        </motion.div>
 
-                        {/* 1. Floating Badge: ISO Certified */}
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3 }}
+                            className="font-display text-5xl md:text-7xl font-semibold tracking-tight text-primary leading-[1.1]"
+                        >
+                            Elevate Your <br />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                                Professional Future.
+                            </span>
+                        </motion.h1>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4 }}
+                            className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-lg"
+                        >
+                            Join the premier institute for Aviation and Hotel Management.
+                            Where academic rigor meets industry elegance.
+                        </motion.p>
+
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1 }}
-                            className="absolute bottom-10 left-8 z-10 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white flex items-center gap-4 max-w-[200px]"
+                            transition={{ delay: 0.5 }}
+                            className="flex flex-wrap gap-4 pt-4"
                         >
-                            <div className="bg-blue-50 p-2.5 rounded-full text-accent">
-                                <Shield className="w-6 h-6" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Accredited</p>
-                                <p className="text-sm font-semibold text-primary">ISO 9001:2015<br />Certified</p>
-                            </div>
+                            <Button
+                                variant="default"
+                                size="lg"
+                                className="h-14 px-8 rounded-full text-base font-medium shadow-xl shadow-blue-900/10 hover:shadow-blue-900/20 transition-all"
+                                onClick={() => setShowPopup(true)}
+                            >
+                                Start Application
+                                <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                            <Link href="/programs">
+                                <Button
+                                    variant="outline"
+                                    size="lg"
+                                    className="h-14 px-8 rounded-full text-base font-medium border-slate-200 hover:bg-slate-50 text-slate-600"
+                                >
+                                    Explore Programs
+                                </Button>
+                            </Link>
                         </motion.div>
 
-                        {/* 2. Floating Badge: Placement Success */}
+                        {/* Trust Indicators */}
                         <motion.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 1.2 }}
-                            className="absolute top-10 right-8 z-10 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.7 }}
+                            className="pt-8 flex items-center gap-6 text-sm text-slate-400 font-medium"
                         >
-                            <div className="text-right">
-                                <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Placements</p>
-                                <p className="text-xl font-bold text-white">500+</p>
+                            <div className="flex items-center gap-2">
+                                <Shield className="w-4 h-4 text-accent" />
+                                ISO 9001:2015 Certified
                             </div>
-                            <div className="bg-accent p-2.5 rounded-full text-white">
-                                <Globe className="w-6 h-6" />
+                            <div className="flex items-center gap-2">
+                                <Globe className="w-4 h-4 text-accent" />
+                                Global Placements
                             </div>
                         </motion.div>
-                    </motion.div>
+                    </div>
+
+                    {/* Visual / Abstract Representation - Now Glass & Subtle */}
+                    <div className="relative hidden lg:block h-[600px] w-full z-0 perspective-1000">
+                        {/* Floating Glass Cards */}
+                        <motion.div
+                            initial={{ opacity: 0, rotateY: 10, translateZ: -50 }}
+                            animate={{ opacity: 1, rotateY: 0, translateZ: 0 }}
+                            transition={{ delay: 0.4, duration: 1, ease: "easeOut" }}
+                            className="absolute inset-0 bg-slate-100 rounded-[2rem] border border-white/40 shadow-2xl overflow-hidden"
+                        >
+                            {/* Main Hero Image */}
+                            <div className="absolute inset-0 z-0">
+                                <Image
+                                    src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?q=80&w=2560&auto=format&fit=crop"
+                                    alt="Aviation Academy Students"
+                                    fill
+                                    className="object-cover transition-transform duration-1000 hover:scale-105"
+                                    priority
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                            </div>
+
+                            {/* Abstract Gradient Overlay - Subtle Shimmer */}
+                            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-40"></div>
+
+                            {/* 1. Floating Badge: ISO Certified */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 1 }}
+                                className="absolute bottom-10 left-8 z-10 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white flex items-center gap-4 max-w-[200px]"
+                            >
+                                <div className="bg-blue-50 p-2.5 rounded-full text-accent">
+                                    <Shield className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Accredited</p>
+                                    <p className="text-sm font-semibold text-primary">ISO 9001:2015<br />Certified</p>
+                                </div>
+                            </motion.div>
+
+                            {/* 2. Floating Badge: Placement Success */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 1.2 }}
+                                className="absolute top-10 right-8 z-10 bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4"
+                            >
+                                <div className="text-right">
+                                    <p className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Placements</p>
+                                    <p className="text-xl font-bold text-white">500+</p>
+                                </div>
+                                <div className="bg-accent p-2.5 rounded-full text-white">
+                                    <Globe className="w-6 h-6" />
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

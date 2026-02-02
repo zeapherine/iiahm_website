@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardTitle } from "@/components/ui/card";
@@ -9,6 +10,7 @@ import { ArrowRight, Plane, Building2, Users, CheckCircle2 } from "lucide-react"
 
 const programs = [
     {
+        id: "aviation",
         title: "Aviation & Air Hostess",
         description: "Professional training in cabin services, safety, and international grooming standards.",
         icon: Plane,
@@ -17,6 +19,7 @@ const programs = [
         tags: ["Global Placement", "Soft Skills"]
     },
     {
+        id: "hotel",
         title: "Hotel Management",
         description: "Comprehensive front-office and F&B management for luxury hospitality.",
         icon: Building2,
@@ -25,6 +28,7 @@ const programs = [
         tags: ["5-Star Internships"]
     },
     {
+        id: "hospitality",
         title: "Hospitality & Tourism",
         description: "Master global tourism dynamics and customer relations in a tech-first world.",
         icon: Users,
@@ -120,13 +124,15 @@ export function Programs() {
 
                                     <div className="mt-auto border-t border-slate-100 pt-6 flex items-center justify-between">
                                         <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">12 Months</span>
-                                        <Button
-                                            variant="ghost"
-                                            size="sm"
-                                            className="text-primary hover:text-accent hover:bg-transparent p-0 font-medium"
-                                        >
-                                            View Syllabus <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                                        </Button>
+                                        <Link href={`/programs/${program.id}`}>
+                                            <Button
+                                                variant="ghost"
+                                                size="sm"
+                                                className="text-primary hover:text-accent hover:bg-transparent p-0 font-medium"
+                                            >
+                                                View Syllabus <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                            </Button>
+                                        </Link>
                                     </div>
                                 </div>
                             </Card>
@@ -135,9 +141,11 @@ export function Programs() {
                 </div>
 
                 <div className="mt-16 text-center">
-                    <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-slate-300 text-slate-600 hover:text-primary hover:border-primary">
-                        View All Programs
-                    </Button>
+                    <Link href="/programs">
+                        <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-slate-300 text-slate-600 hover:text-primary hover:border-primary">
+                            View All Programs
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </section>

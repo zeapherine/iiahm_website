@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Plane, Building2, Utensils, Headphones, ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -118,10 +119,12 @@ export default function ProgramsPage() {
                                 </div>
 
                                 <div className="px-10 pb-10 pt-0">
-                                    <Button variant="outline" className="w-full rounded-full h-12 border-slate-200 text-slate-600 hover:text-primary hover:border-slate-300 hover:bg-slate-50 font-medium transition-all group-hover:border-accent group-hover:text-accent">
-                                        View Curriculum
-                                        <ArrowRight className="ml-2 w-4 h-4" />
-                                    </Button>
+                                    <Link href={`/programs/${course.id}`}>
+                                        <Button variant="outline" className="w-full rounded-full h-12 border-slate-200 text-slate-600 hover:text-primary hover:border-slate-300 hover:bg-slate-50 font-medium transition-all group-hover:border-accent group-hover:text-accent">
+                                            View Curriculum
+                                            <ArrowRight className="ml-2 w-4 h-4" />
+                                        </Button>
+                                    </Link>
                                 </div>
                             </Card>
                         </motion.div>

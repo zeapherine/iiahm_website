@@ -92,7 +92,7 @@ function Button({
 
   if (magnetic && !asChild) {
     return (
-      <motion.button
+      <motion.span
         style={{ x: springX, y: springY }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -105,7 +105,7 @@ function Button({
           className={cn(buttonVariants({ variant, size, className }))}
           {...props}
         />
-      </motion.button>
+      </motion.span>
     )
   }
 
