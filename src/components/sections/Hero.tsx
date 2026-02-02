@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
 import { ArrowRight, Globe, Shield } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 export function Hero() {
     const [showPopup, setShowPopup] = useState(false);
@@ -36,7 +35,7 @@ export function Hero() {
                     </svg>
                 </div>
 
-                <div className="container relative z-10 mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+                <div className="container relative z-10 mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-12 items-center">
 
                     {/* Text Content */}
                     <div className="text-left space-y-8">
@@ -54,7 +53,7 @@ export function Hero() {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="font-display text-5xl md:text-7xl font-semibold tracking-tight text-primary leading-[1.1]"
+                            className="font-display text-4xl sm:text-5xl md:text-7xl font-semibold tracking-tight text-primary leading-[1.1]"
                         >
                             Elevate Your <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
@@ -76,22 +75,22 @@ export function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.5 }}
-                            className="flex flex-wrap gap-4 pt-4"
+                            className="flex flex-col sm:flex-row gap-4 pt-4"
                         >
                             <Button
                                 variant="default"
                                 size="lg"
-                                className="h-14 px-8 rounded-full text-base font-medium shadow-xl shadow-blue-900/10 hover:shadow-blue-900/20 transition-all"
+                                className="h-14 px-8 rounded-full text-base font-medium shadow-xl shadow-blue-900/10 hover:shadow-blue-900/20 transition-all w-full sm:w-auto"
                                 onClick={() => setShowPopup(true)}
                             >
                                 Start Application
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Button>
-                            <Link href="/programs">
+                            <Link href="/programs" className="w-full sm:w-auto">
                                 <Button
                                     variant="outline"
                                     size="lg"
-                                    className="h-14 px-8 rounded-full text-base font-medium border-slate-200 hover:bg-slate-50 text-slate-600"
+                                    className="h-14 px-8 rounded-full text-base font-medium border-slate-200 hover:bg-slate-50 text-slate-600 w-full"
                                 >
                                     Explore Programs
                                 </Button>

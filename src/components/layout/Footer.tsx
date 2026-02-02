@@ -1,8 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ChevronRight, Globe } from "lucide-react";
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
+    const [year, setYear] = useState(2025); // Default fallback
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setYear(new Date().getFullYear());
+    }, []);
 
     return (
         <footer className="bg-slate-900 text-slate-300 py-20 relative overflow-hidden">
@@ -13,8 +21,8 @@ export default function Footer() {
                 </svg>
             </div>
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
                     {/* Brand Section */}
                     <div className="space-y-6">
                         <h2 className="text-3xl font-display font-semibold text-white tracking-tight">
@@ -105,7 +113,7 @@ export default function Footer() {
 
                 <div className="mt-20 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
                     <p className="text-slate-500 text-xs">
-                        © {currentYear} IIAHM. All rights reserved.
+                        © {year} IIAHM. All rights reserved.
                     </p>
                     <div className="flex gap-8">
                         <Link href="#" className="text-slate-500 hover:text-white text-xs transition-colors">Privacy Policy</Link>

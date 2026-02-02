@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, BookOpen, Download, CheckCircle2, Clock, MapPin } from "lucide-react";
 import Link from "next/link";
@@ -57,7 +56,7 @@ export default function SyllabusPage() {
     return (
         <div className="min-h-screen bg-slate-50 pt-24">
             <header className="bg-white border-b border-slate-200 py-12 md:py-20">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <Link href="/programs" className="inline-flex items-center text-accent text-sm font-semibold mb-8 hover:gap-2 transition-all">
                         <ArrowLeft className="w-4 h-4 mr-2" /> Back to Programs
                     </Link>
@@ -65,7 +64,7 @@ export default function SyllabusPage() {
                         <span className="bg-blue-50 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">
                             {program.category}
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-display font-semibold text-primary tracking-tight mb-6">
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-semibold text-primary tracking-tight mb-6">
                             {program.title}
                         </h1>
                         <p className="text-xl text-slate-500 leading-relaxed max-w-2xl">
@@ -86,7 +85,7 @@ export default function SyllabusPage() {
                 </div>
             </header>
 
-            <main className="container mx-auto px-6 py-16">
+            <main className="container mx-auto px-4 md:px-6 py-16">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
                     <section className="lg:col-span-2 space-y-12">
                         <div>
@@ -106,7 +105,7 @@ export default function SyllabusPage() {
                             </div>
                         </div>
 
-                        <div className="bg-slate-900 text-white p-10 md:p-16 rounded-[2.5rem] relative overflow-hidden">
+                        <div className="bg-slate-900 text-white p-6 md:p-16 rounded-[2.5rem] relative overflow-hidden">
                             <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
                                 <div>
                                     <h3 className="text-3xl font-display font-semibold mb-4">Ready to start your mission?</h3>
@@ -118,7 +117,7 @@ export default function SyllabusPage() {
                     </section>
 
                     <aside className="space-y-8">
-                        <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                        <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm">
                             <h3 className="text-xl font-display font-semibold text-primary mb-6">Program Outcomes</h3>
                             <ul className="space-y-4">
                                 {program.outcomes.map((outcome, i) => (
@@ -133,7 +132,7 @@ export default function SyllabusPage() {
                             </Button>
                         </div>
 
-                        <div className="bg-blue-50/50 p-8 rounded-3xl border border-blue-100/50">
+                        <div className="bg-blue-50/50 p-6 sm:p-8 rounded-3xl border border-blue-100/50">
                             <h3 className="text-lg font-display font-semibold text-primary mb-4">Admissions Help</h3>
                             <p className="text-sm text-slate-600 mb-6 leading-relaxed">Have questions about eligibility or the application process? Our counselors are here to guide you.</p>
                             <a href="tel:+91XXXXXXXXXX" className="text-accent font-bold text-lg hover:underline transition-all tracking-tight">+91 XXX XXX XXXX</a>

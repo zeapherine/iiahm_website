@@ -8,7 +8,7 @@ export function ApplicationPopup({ isOpen, onClose }: { isOpen: boolean; onClose
     return (
         <AnimatePresence>
             {isOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
                     {/* Overlay Background */}
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -40,14 +40,14 @@ export function ApplicationPopup({ isOpen, onClose }: { isOpen: boolean; onClose
                         </div>
 
                         {/* Portal Form */}
-                        <div className="p-8 md:p-10 space-y-8">
+                        <div className="p-6 md:p-10 space-y-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
                                     <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block ml-1">Candidate Name</label>
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        className="w-full h-12 bg-white border border-slate-200 px-4 text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl"
+                                        className="w-full h-12 bg-white border border-slate-200 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -55,14 +55,14 @@ export function ApplicationPopup({ isOpen, onClose }: { isOpen: boolean; onClose
                                     <input
                                         type="tel"
                                         placeholder="+91"
-                                        className="w-full h-12 bg-white border border-slate-200 px-4 text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl"
+                                        className="w-full h-12 bg-white border border-slate-200 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block ml-1">Academic Interest</label>
-                                <select className="w-full h-12 bg-white border border-slate-200 px-4 text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl appearance-none cursor-pointer">
+                                <select className="w-full h-12 bg-white border border-slate-200 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl appearance-none cursor-pointer">
                                     <option>Aviation & Air Hostess Diploma</option>
                                     <option>Hotel Management Diploma</option>
                                     <option>Hospitality & Tourism Certificate</option>

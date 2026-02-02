@@ -2,9 +2,8 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { cn } from "@/lib/utils";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { Users, Globe, Building, Award, CheckCircle2 } from "lucide-react";
+import { Users, Globe, Building, Award } from "lucide-react";
 
 const stats = [
     { label: "Lives Impacted", value: 5000, suffix: "+", icon: Users, theme: "noir" },
@@ -15,7 +14,6 @@ const stats = [
 
 export function Impact() {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-100px" });
 
     return (
         <section ref={ref} className="bg-slate-900 py-32 overflow-hidden relative text-white">

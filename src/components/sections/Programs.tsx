@@ -4,9 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Card, CardTitle } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
-import { ArrowRight, Plane, Building2, Users, CheckCircle2 } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { ArrowRight, Plane, Building2, Users } from "lucide-react";
 
 const programs = [
     {
@@ -41,7 +40,7 @@ const programs = [
 export function Programs() {
     return (
         <section className="bg-slate-50 py-32 overflow-hidden">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-4 md:px-6">
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
                     <div className="space-y-4">
                         <motion.div
@@ -73,7 +72,7 @@ export function Programs() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {programs.map((program, idx) => (
                         <motion.div
                             key={idx}
@@ -85,7 +84,7 @@ export function Programs() {
                         >
                             <Card className="h-full border-0 ring-1 ring-slate-200 bg-white shadow-subtle hover:shadow-float transition-all duration-500 flex flex-col rounded-[1.5rem] overflow-hidden">
                                 {/* Image Container */}
-                                <div className="relative h-64 overflow-hidden">
+                                <div className="relative h-56 md:h-64 overflow-hidden">
                                     <Image
                                         src={program.image}
                                         alt={program.title}
@@ -108,7 +107,7 @@ export function Programs() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-8 flex-1 flex flex-col">
+                                <div className="p-6 lg:p-8 flex-1 flex flex-col">
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="p-2.5 bg-blue-50 rounded-xl text-accent group-hover:bg-accent group-hover:text-white transition-colors">
                                             <program.icon className="h-6 w-6" />

@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
@@ -37,14 +37,26 @@ export default function Header() {
         setIsOpen(false);
     }, [pathname]);
 
+    // Lock body scroll when menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isOpen]);
+
     return (
         <>
             <header
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out",
-                    isScrolled
-                        ? "bg-white/90 backdrop-blur-md shadow-subtle py-4"
-                        : "bg-white/50 backdrop-blur-sm py-5" // Added subtle background to default state to prevent total transparency clashes
+                    isScrolled || isOpen
+                        ? "bg-white shadow-subtle py-4"
+                        : "bg-white/80 backdrop-blur-md py-5"
                 )}
             >
                 <nav className="container mx-auto px-6 flex items-center justify-between">
@@ -53,7 +65,7 @@ export default function Header() {
                         className="flex items-center gap-2 group"
                     >
                         <span className={cn(
-                            "text-2xl font-heading font-black tracking-tight",
+                            "text-xl md:text-2xl font-heading font-black tracking-tight",
                             isScrolled ? "text-slate-900" : "text-slate-900"
                         )}>
                             IIAHM
@@ -86,7 +98,7 @@ export default function Header() {
                         <Button
                             variant="default"
                             size="sm"
-                            className="hidden lg:flex px-6 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all"
+                            className="hidden md:flex px-6 rounded-full shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all"
                             onClick={() => setShowPopup(true)}
                         >
                             Enquire Now
@@ -95,7 +107,7 @@ export default function Header() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-slate-800 p-2"
+                        className="md:hidden text-slate-800 p-2 relative z-50"
                         onClick={() => setIsOpen(!isOpen)}
                     >
                         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -106,32 +118,66 @@ export default function Header() {
                 <AnimatePresence>
                     {isOpen && (
                         <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="fixed inset-0 z-40 top-[70px] md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100"
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            variants={{
+                                open: {
+                                    opacity: 1,
+                                    y: 0,
+                                    transition: {
+                                        duration: 0.4,
+                                        ease: [0.22, 1, 0.36, 1], // easeOutQuart
+                                        staggerChildren: 0.08,
+                                        delayChildren: 0.1
+                                    }
+                                },
+                                closed: {
+                                    opacity: 0,
+                                    y: -20,
+                                    transition: {
+                                        duration: 0.3,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }
+                                }
+                            }}
+                            className="fixed inset-0 z-40 top-0 md:hidden bg-white border-t border-slate-100 pt-24"
                         >
                             <div className="flex flex-col p-8 space-y-6">
-                                {navLinks.map((link, i) => (
-                                    <Link
+                                {navLinks.map((link) => (
+                                    <motion.div
                                         key={link.name}
-                                        href={link.href}
-                                        onClick={() => setIsOpen(false)}
-                                        className="text-2xl font-heading font-medium text-slate-800 hover:text-accent transition-colors"
+                                        variants={{
+                                            open: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
+                                            closed: { opacity: 0, x: -20 }
+                                        }}
                                     >
-                                        {link.name}
-                                    </Link>
+                                        <Link
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="text-2xl font-heading font-medium text-slate-800 hover:text-accent transition-colors block"
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </motion.div>
                                 ))}
-                                <Button
-                                    variant="default"
-                                    className="w-full h-12 text-lg mt-8 rounded-full"
-                                    onClick={() => {
-                                        setIsOpen(false);
-                                        setShowPopup(true);
+                                <motion.div
+                                    variants={{
+                                        open: { opacity: 1, y: 0, transition: { delay: 0.2 } },
+                                        closed: { opacity: 0, y: 10 }
                                     }}
                                 >
-                                    Start Application
-                                </Button>
+                                    <Button
+                                        variant="default"
+                                        className="w-full h-12 text-lg mt-8 rounded-full"
+                                        onClick={() => {
+                                            setIsOpen(false);
+                                            setShowPopup(true);
+                                        }}
+                                    >
+                                        Enquire Now
+                                    </Button>
+                                </motion.div>
                             </div>
                         </motion.div>
                     )}

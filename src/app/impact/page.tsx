@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Target, Heart, CheckCircle2, Award, Users, Globe } from "lucide-react";
+import { ShieldCheck, Award, Users, Globe } from "lucide-react";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { cn } from "@/lib/utils";
 
 const metrics = [
     { val: 5000, label: "Lives Impacted", suffix: "+", description: "Empowering families through education." },
@@ -21,7 +20,7 @@ export default function ImpactPage() {
                     <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px]" />
                 </div>
 
-                <div className="container mx-auto px-6 relative z-10 text-center">
+                <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -33,7 +32,7 @@ export default function ImpactPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-8xl font-display font-semibold tracking-tight mb-8"
+                        className="text-4xl sm:text-6xl md:text-8xl font-display font-semibold tracking-tight mb-8"
                     >
                         Proven Excellence. <br />
                         <span className="text-slate-400">Measured.</span>
@@ -51,7 +50,7 @@ export default function ImpactPage() {
 
             {/* Refined Stats Grid */}
             <section className="py-32 bg-white">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {metrics.map((item, i) => (
                             <motion.div
@@ -75,7 +74,7 @@ export default function ImpactPage() {
 
             {/* Content Section: Mission Pillars */}
             <section className="py-32 border-t border-slate-100">
-                <div className="container mx-auto px-6">
+                <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
                         <div className="lg:col-span-1 space-y-6">
                             <h2 className="text-4xl font-display font-semibold text-primary">Our Pillars of Empowerment.</h2>

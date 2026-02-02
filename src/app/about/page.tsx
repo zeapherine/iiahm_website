@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Award, Users, Globe, CheckCircle2 } from "lucide-react";
+import { Award, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
 import { cn } from "@/lib/utils";
@@ -43,7 +43,7 @@ export default function AboutPage() {
             <ApplicationPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
             <div className="flex flex-col bg-white min-h-screen pt-24 overflow-x-hidden">
                 {/* Mission Hero */}
-                <section className="container mx-auto px-6 py-32 text-center">
+                <section className="container mx-auto px-4 md:px-6 py-32 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export default function AboutPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-display font-semibold text-primary tracking-tight mb-8"
+                        className="text-4xl sm:text-5xl md:text-7xl font-display font-semibold text-primary tracking-tight mb-8"
                     >
                         Building <span className="text-accent">Global Futures</span> <br />
                         Since 2017.
@@ -75,7 +75,7 @@ export default function AboutPage() {
 
                 {/* Core Values */}
                 <section className="bg-slate-50 py-32">
-                    <div className="container mx-auto px-6">
+                    <div className="container mx-auto px-4 md:px-6">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                             {values.map((value, idx) => (
                                 <motion.div
@@ -98,7 +98,7 @@ export default function AboutPage() {
                 </section>
 
                 {/* Timeline / Milestones */}
-                <section className="container mx-auto px-6 py-32">
+                <section className="container mx-auto px-4 md:px-6 py-32">
                     <div className="max-w-4xl mx-auto space-y-16 relative">
                         {/* Vertical Line */}
                         <div className="absolute left-[2rem] md:left-1/2 top-0 bottom-0 w-px bg-slate-200" />
@@ -158,11 +158,11 @@ export default function AboutPage() {
                         <h2 className="text-4xl md:text-5xl font-display font-semibold text-white mb-8">
                             Join a Legacy of Excellence.
                         </h2>
-                        <div className="flex justify-center gap-6">
+                        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
                             <Button
                                 variant="accent"
                                 size="lg"
-                                className="rounded-full h-14 px-8 text-lg"
+                                className="rounded-full h-14 px-8 text-lg w-full sm:w-auto"
                                 onClick={() => setShowPopup(true)}
                             >
                                 Apply for 2025
@@ -170,7 +170,7 @@ export default function AboutPage() {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="rounded-full h-14 px-8 text-lg bg-transparent text-white border-white/20 hover:bg-white/10 hover:text-white"
+                                className="rounded-full h-14 px-8 text-lg bg-transparent text-white border-white/20 hover:bg-white/10 hover:text-white w-full sm:w-auto"
                                 onClick={() => alert("Brochure download will be available soon!")}
                             >
                                 Download Brochure
