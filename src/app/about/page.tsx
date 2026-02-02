@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { Award, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
@@ -37,6 +37,18 @@ const values = [
 
 export default function AboutPage() {
     const [showPopup, setShowPopup] = useState(false);
+    const timelineRef = useRef<HTMLDivElement>(null);
+
+    const { scrollYProgress } = useScroll({
+        target: timelineRef,
+        offset: ["start 80%", "end center"]
+    });
+
+    const scaleY = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
     return (
         <>
@@ -102,56 +114,63 @@ export default function AboutPage() {
 
                 {/* Timeline / Milestones */}
                 <section className="container mx-auto px-4 md:px-6 py-32">
-                    <div className="max-w-4xl mx-auto space-y-16 relative">
-                        {/* Vertical Line */}
-                        <div className="absolute left-[2rem] md:left-1/2 top-0 bottom-0 w-px bg-slate-200" />
+                    <div ref={timelineRef} className="max-w-4xl mx-auto space-y-24 relative">
+                        {/* Vertical Line Container */}
+                        <div className="absolute left-[2rem] md:left-1/2 top-0 bottom-0 w-px bg-slate-100 dark:bg-slate-800" >
+                            {/* Filling Progress Line */}
+                            <motion.div
+                                style={{ scaleY, originY: 0 }}
+                                className="absolute inset-0 w-full bg-accent shadow-[0_0_15px_rgba(14,165,233,0.5)]"
+                            />
+                        </div>
 
                         {milestones.map((milestone, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                initial={{ opacity: 0, x: idx % 2 === 0 ? 30 : -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                 className={cn(
-
-                                    "relative flex flex-col md:flex-row gap-8 items-center",
+                                    "relative flex flex-col md:flex-row gap-12 items-center",
                                     idx % 2 === 0 ? "md:flex-row-reverse text-left md:text-left" : "md:flex-row text-left md:text-right"
                                 )}
                             >
                                 <div className="flex-1 w-full md:w-auto pl-16 md:pl-0 md:pr-12 md:text-right">
-                                    {idx % 2 === 0 ? (
-                                        <div className="md:text-left md:pl-12">
-                                            <span className="text-accent font-bold text-sm tracking-wider">{milestone.year}</span>
-                                            <h4 className="text-2xl font-display font-semibold text-primary mt-2 mb-2">{milestone.title.replace(/_/g, " ")}</h4>
-                                            <p className="text-slate-500">{milestone.description}</p>
-                                        </div>
-                                    ) : (
-                                        <>
-                                            <span className="text-accent font-bold text-sm tracking-wider">{milestone.year}</span>
-                                            <h4 className="text-2xl font-display font-semibold text-primary mt-2 mb-2">{milestone.title.replace(/_/g, " ")}</h4>
-                                            <p className="text-slate-500">{milestone.description}</p>
-                                        </>
-                                    )}
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: 0.2, duration: 0.8 }}
+                                        className={cn(idx % 2 === 0 ? "md:text-left md:pl-12" : "md:text-right")}
+                                    >
+                                        <span className="text-accent font-bold text-sm tracking-widest bg-accent/5 px-3 py-1 rounded-full">{milestone.year}</span>
+                                        <h4 className="text-2xl md:text-3xl font-display font-semibold text-primary mt-4 mb-3 tracking-tight">
+                                            {milestone.title.replace(/_/g, " ")}
+                                        </h4>
+                                        <p className="text-slate-500 leading-relaxed text-lg">
+                                            {milestone.description}
+                                        </p>
+                                    </motion.div>
                                 </div>
 
-                                {/* Dot */}
-                                <div className="absolute left-[calc(2rem-0.5rem)] md:left-[calc(50%-0.5rem)] w-4 h-4 rounded-full bg-white border-4 border-accent shadow-sm z-10" />
-
-                                <div className="flex-1 w-full md:w-auto pl-16 md:pl-12 md:pr-0">
-                                    {idx % 2 !== 0 && (
-                                        <div className="md:hidden"> {/* Mobile duplicate strictly for layout - simplified */}
-                                            {/* Content already rendered above for mobile flow, this block is just spacer for desktop if needed */}
-                                        </div>
-                                    )}
-                                    {idx % 2 === 0 ? (
-                                        <div className="hidden md:block" />
-                                    ) : (
-                                        <div className="md:text-left">
-                                            {/* Right side content for odd items */}
-                                        </div>
-                                    )}
+                                {/* Interactive Dot */}
+                                <div className="absolute left-[calc(2rem-0.75rem)] md:left-[calc(50%-0.75rem)] w-6 h-6 z-10 flex items-center justify-center">
+                                    <div className="absolute inset-0 bg-accent/20 rounded-full animate-ping opacity-20" />
+                                    <motion.div
+                                        initial={{ scale: 0.5, opacity: 0 }}
+                                        whileInView={{ scale: 1, opacity: 1 }}
+                                        viewport={{ once: true }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 260,
+                                            damping: 20
+                                        }}
+                                        className="w-4 h-4 rounded-full bg-white border-4 border-accent shadow-[0_0_10px_rgba(14,165,233,0.3)] z-20"
+                                    />
                                 </div>
+
+                                <div className="flex-1 hidden md:block" />
                             </motion.div>
                         ))}
                     </div>
