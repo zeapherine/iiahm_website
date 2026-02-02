@@ -1,0 +1,167 @@
+{
+    "pages": {
+        "home": {
+            "url": "https://www.ianinstitute.in/",
+            "sections": [
+                {
+                    "heading": "Hero Section",
+                    "content": "IIAHM Kokrajhar is proud to be recognized as the No. 1 Global Placement Management Program in Northeast India within just 5 years of establishment."
+                },
+                {
+                    "heading": "Mission",
+                    "content": "Our mission is to make international-standard career opportunities accessible to the youth of Northeast India — transforming lives, building careers, and creating success stories every year."
+                },
+                {
+                    "heading": "About Us",
+                    "content": "Since our inception, we have empowered hundreds of young professionals with world-class training in Hospitality, Hotel Management, and Aviation, ensuring 100% job placement assistance both in India and abroad."
+                },
+                {
+                    "heading": "Scholarship",
+                    "content": "Mijing Youth Foundation NGO - 80% Off Scholarship Program for Financially Weak Families."
+                }
+            ],
+            "contact_info": {
+                "phone": "+91 93942-37112",
+                "email": "ian@ianinstitute.in",
+                "address": "Kokrajhar, Tengapara, North Kokrajhar, SBI Building, 4th Floor"
+            }
+        },
+        "ngo": {
+            "url": "https://www.ianinstitute.in/ngo",
+            "sections": [
+                {
+                    "heading": "Headline",
+                    "content": "Mijing Youth Foundation (Empowering Young Minds) - Turn Hopes Into Careers — Because Money Shouldn’t Decide Your Destiny."
+                },
+                {
+                    "heading": "About NGO",
+                    "content": "At IIAHM Kokrajhar, we believe that talent, ambition, and hard work should never be held back by financial struggles. Every young person, no matter where they come from or what their family background is, deserves the chance to dream big and build a successful future. Our NGO initiative was launched to ensure that no youth’s potential goes to waste simply because of money. Through heavily subsidized hospitality, hotel management, and aviation programs — combined with guaranteed job placement support — we are opening doors for students who would otherwise be left behind."
+                },
+                {
+                    "heading": "Philosophy",
+                    "content": "Your Dreams Should Fly — Not Be Limited by Money. Education is not a privilege, it’s a right. Opportunity should belong to everyone — and a brighter future should be within reach for every hardworking, deserving youth."
+                }
+            ]
+        },
+        "hotel-management": {
+            "url": "https://www.ianinstitute.in/hotel-management",
+            "sections": [
+                {
+                    "heading": "Program Name",
+                    "content": "Direct-To-Job Professional Diploma."
+                },
+                {
+                    "heading": "Course Details",
+                    "content": "Duration: 3 Months. Eligibility: Minimum 10 + 2 passed. Certification with International Placement."
+                },
+                {
+                    "heading": "Departments",
+                    "content": "Front Office Management, Food & Beverage Service, Housekeeping, General Administration, Reservation Officer, Event Management, and Food Production."
+                },
+                {
+                    "heading": "Job Assistance",
+                    "content": "100% job assistance in top 5-star hotels and resorts both National and International."
+                }
+            ]
+        },
+        "about": {
+            "url": "https://www.ianinstitute.in/about",
+            "sections": [
+                {
+                    "heading": "Mission",
+                    "content": "To give wings to lakhs of dreams of youths from all over Northeast India by making our platform affordable and easily accessible."
+                },
+                {
+                    "heading": "Vision",
+                    "content": "To be the top upskilling platform of Northeast India and to boost youth employment through practical skills with placement to top organisations and companies in the world."
+                },
+                {
+                    "heading": "Institute History",
+                    "content": "Ian Institute is the first-ever professional Skill Development Training Institute based in Kokrajhar, Assam. They provide professional training in the Aviation and Hotel Management industries."
+                }
+            ],
+            "trainers": [
+                "Mr. Agwma Basumatary",
+                "Mr. Swmkwr Basumatary",
+                "Ms. Munmun Chowdhury",
+                "Ms. Vicky Amarnani",
+                "Ms. Mallika Basumatary",
+                "Ms. Nishu Mann"
+            ]
+        },
+        "programs": {
+            "url": "https://www.ianinstitute.in/programs",
+            "sections": [
+                {
+                    "heading": "Overview",
+                    "content": "Integrated Diploma Course Programs focusing on Aviation, Hospitality, and Tourism industries."
+                },
+                {
+                    "heading": "Benefits",
+                    "content": "Attractive salary packages, global travel opportunities, flexible schedules, health/retirement benefits, flight/hotel discounts, luxury lifestyle."
+                },
+                {
+                    "heading": "Curriculum",
+                    "content": "Job roles & responsibilities, flight schedules, customer handling, crowd management, interpersonal skills, communication, grooming, technical skills, personality development."
+                }
+            ]
+        },
+        "contact": {
+            "url": "https://www.ianinstitute.in/contact",
+            "sections": [
+                {
+                    "heading": "Support",
+                    "content": "We'd love to hear from you."
+                }
+            ],
+            "emails": [
+                "info.ianinstitute@gmail.com",
+                "ian@ianinstitute.in"
+            ],
+            "phones": [
+                "+91 93942-37112",
+                "+91 81340-36650"
+            ],
+            "address": "Kokrajhar, Tengapara, North Kokrajhar, SBI Building, 4th Floor"
+        }
+    },
+    "assets": {
+        "images": [
+            {
+                "name": "Logo New",
+                "url": "https://static.wixstatic.com/media/e2e661_2d1fb5ce65d5449f88f9aed723ea38c4~mv2.png/v1/fill/w_277,h_167,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo%20New.png",
+                "type": "logo"
+            },
+            {
+                "name": "Hero Banner 1",
+                "url": "https://static.wixstatic.com/media/e2e661_463e1184bea948c8a051e9337bbbefbe~mv2.jpg/v1/fill/w_1500,h_1080,al_c,q_85,enc_avif,quality_auto/e2e661_463e1184bea948c8a051e9337bbbefbe~mv2.jpg",
+                "type": "hero"
+            },
+            {
+                "name": "Cover Image",
+                "url": "https://static.wixstatic.com/media/e2e661_8d8a6c7dc0b442c1b45812ea32504b9e~mv2.jpg/v1/fill/w_1373,h_340,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Cover.jpg",
+                "type": "hero"
+            },
+            {
+                "name": "NGO Hero",
+                "url": "https://static.wixstatic.com/media/e2e661_b9ca939e81b14195b8812c1f51ee7608~mv2.jpg/v1/fill/w_1617,h_1080,al_c,q_85,enc_avif,quality_auto/e2e661_b9ca939e81b14195b8812c1f51ee7608~mv2.jpg",
+                "type": "hero"
+            },
+            {
+                "name": "HM Landing",
+                "url": "https://static.wixstatic.com/media/e2e661_d81fb0706e8d493cad1549e899aea9f2~mv2.jpg/v1/fill/w_1249,h_467,q_90,enc_avif,quality_auto/e2e661_d81fb0706e8d493cad1549e899aea9f2~mv2.jpg",
+                "type": "hero"
+            },
+            {
+                "name": "Trainers",
+                "url": "https://static.wixstatic.com/media/e2e661_90170d26722e41808e75c5e6523c4888~mv2.jpg/v1/fill/w_600,h_449,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Trainers.jpg",
+                "type": "team"
+            },
+            {
+                "name": "Student Life",
+                "url": "https://static.wixstatic.com/media/11062b_4b95dfb7e4cf4f02a2c2c774cbc42f00~mv2_d_8660_5773_s_4_2.jpg/v1/fill/w_2498,h_336,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_4b95dfb7e4cf4f02a2c2c774cbc42f00~mv2_d_8660_5773_s_4_2.jpg",
+                "type": "gallery"
+            }
+        ]
+    }
+}
