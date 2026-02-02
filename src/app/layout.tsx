@@ -1,6 +1,6 @@
 import { Suspense, type ReactNode } from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -13,8 +13,15 @@ import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap", // Optimize font loading
-  preload: true, // Preload for better performance
+  display: "swap",
+  preload: true,
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -30,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} font-sans antialiased text-foreground bg-background`}
+        className={`${inter.variable} ${plusJakartaSans.variable} font-sans antialiased text-foreground bg-background`}
         suppressHydrationWarning
       >
         <ThemeProvider>

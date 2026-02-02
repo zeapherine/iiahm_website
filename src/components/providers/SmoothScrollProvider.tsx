@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, ReactNode } from "react";
 import Lenis from "lenis";
+import { usePathname } from "next/navigation";
 
 interface SmoothScrollProviderProps {
     children: ReactNode;
@@ -9,6 +10,7 @@ interface SmoothScrollProviderProps {
 
 export default function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     const lenisRef = useRef<Lenis | null>(null);
+    const pathname = usePathname();
 
     useEffect(() => {
         // Initialize Lenis with smooth, premium settings
@@ -32,6 +34,13 @@ export default function SmoothScrollProvider({ children }: SmoothScrollProviderP
             lenisRef.current?.destroy();
         };
     }, []);
+
+    // Reset scroll to top on pathname change
+    useEffect(() => {
+        if (lenisRef.current) {
+            lenisRef.current.scrollTo(0, { immediate: true });
+        }
+    }, [pathname]);
 
     return <>{children}</>;
 }

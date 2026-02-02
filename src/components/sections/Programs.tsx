@@ -85,7 +85,7 @@ export function Programs() {
                             transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="group h-full"
                         >
-                            <Card className="h-full border-0 ring-1 ring-border bg-card shadow-subtle hover:shadow-float transition-all duration-700 ease-out flex flex-col rounded-[1.5rem] overflow-hidden hover:-translate-y-1">
+                            <Card className="h-full border-0 ring-1 ring-border bg-card shadow-subtle dark:shadow-none hover:shadow-float dark:hover:ring-accent/50 transition-all duration-700 ease-out flex flex-col rounded-[1.5rem] overflow-hidden hover:-translate-y-1">
                                 {/* Image Container */}
                                 <div className="relative h-56 md:h-64 overflow-hidden">
                                     <Image
@@ -94,15 +94,15 @@ export function Programs() {
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-80 dark:opacity-40" />
                                     <div className="absolute top-6 left-6 z-20">
-                                        <div className="bg-background/90 backdrop-blur-md text-foreground w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full shadow-sm">
+                                        <div className="bg-background/90 dark:bg-card/90 backdrop-blur-md text-foreground w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full shadow-sm border border-border">
                                             0{idx + 1}
                                         </div>
                                     </div>
                                     <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-wrap gap-2">
                                         {program.tags.map((tag, i) => (
-                                            <span key={i} className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full">
+                                            <span key={i} className="bg-background/40 dark:bg-accent/10 backdrop-blur-md text-foreground dark:text-accent border border-border/50 dark:border-accent/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full">
                                                 {tag}
                                             </span>
                                         ))}
@@ -110,7 +110,7 @@ export function Programs() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6 lg:p-8 flex-1 flex flex-col">
+                                <div className="p-6 lg:p-8 flex-1 flex flex-col dark:bg-slate-900/20">
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="p-2.5 bg-accent/10 rounded-xl text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                             <program.icon className="h-6 w-6" />

@@ -134,7 +134,7 @@ export function Hero() {
                             initial={{ opacity: 0, scale: 0.98, rotateY: 5 }}
                             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                             transition={{ delay: 0.4, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute inset-0 bg-muted rounded-[2rem] border border-border shadow-2xl overflow-hidden"
+                            className="absolute inset-0 bg-muted dark:bg-slate-900/50 rounded-[2rem] border border-border shadow-2xl overflow-hidden"
                         >
                             {/* Main Hero Image */}
                             <motion.div style={{ y: imageY }} className="absolute inset-0 z-0">
@@ -146,7 +146,7 @@ export function Hero() {
                                     className="object-cover transition-transform duration-1000 hover:scale-105"
                                     priority
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 dark:from-background/90 via-transparent to-transparent" />
                             </motion.div>
 
                             {/* Abstract Gradient Overlay - Subtle Shimmer */}
@@ -157,9 +157,9 @@ export function Hero() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 1 }}
-                                className="absolute bottom-10 left-8 z-10 bg-background/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-border flex items-center gap-4 max-w-[200px]"
+                                className="absolute bottom-10 left-8 z-10 bg-background/80 dark:bg-card/80 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-border flex items-center gap-4 max-w-[200px]"
                             >
-                                <div className="bg-accent/10 p-2.5 rounded-full text-accent">
+                                <div className="bg-accent/10 p-2.5 rounded-full text-accent shadow-inner">
                                     <Shield className="w-6 h-6" />
                                 </div>
                                 <div>
@@ -173,13 +173,13 @@ export function Hero() {
                                 initial={{ opacity: 0, x: 20 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 1.2 }}
-                                className="absolute top-10 right-8 z-10 bg-primary/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-primary-foreground/10 flex items-center gap-4"
+                                className="absolute top-10 right-8 z-10 bg-primary/90 dark:bg-accent/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/10 flex items-center gap-4"
                             >
                                 <div className="text-right">
-                                    <p className="text-[10px] uppercase font-bold text-primary-foreground/70 tracking-wider">Placements</p>
-                                    <p className="text-xl font-bold text-primary-foreground">500+</p>
+                                    <p className="text-[10px] uppercase font-bold text-white/70 tracking-wider">Placements</p>
+                                    <p className="text-xl font-bold text-white">500+</p>
                                 </div>
-                                <div className="bg-accent p-2.5 rounded-full text-accent-foreground">
+                                <div className="bg-white/20 p-2.5 rounded-full text-white">
                                     <Globe className="w-6 h-6" />
                                 </div>
                             </motion.div>

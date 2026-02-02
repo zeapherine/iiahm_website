@@ -90,29 +90,29 @@ export default function ProgramsPage() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                         >
-                            <Card className="border-0 ring-1 ring-slate-200 bg-white shadow-subtle hover:shadow-float transition-all duration-700 ease-out flex flex-col h-full rounded-[1.5rem] overflow-hidden group hover:-translate-y-1">
+                            <Card className="border-0 ring-1 ring-border bg-card shadow-subtle dark:shadow-none hover:shadow-float dark:hover:ring-accent/50 transition-all duration-700 ease-out flex flex-col h-full rounded-[1.5rem] overflow-hidden group hover:-translate-y-1">
                                 <div className="p-6 md:p-10 flex-1 flex flex-col">
                                     <div className="flex justify-between items-start mb-8">
-                                        <div className="w-14 h-14 rounded-2xl bg-blue-50 text-accent flex items-center justify-center group-hover:bg-accent/10 transition-all duration-300">
+                                        <div className="w-14 h-14 rounded-2xl bg-accent/10 text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
                                             <course.icon className="w-7 h-7" />
                                         </div>
-                                        <span className="bg-slate-100/80 text-slate-600 px-4 py-1.5 text-xs font-semibold rounded-full backdrop-blur-md">
+                                        <span className="bg-muted text-muted-foreground px-4 py-1.5 text-xs font-semibold rounded-full backdrop-blur-md border border-border">
                                             {course.duration.replace(/_/g, " ")}
                                         </span>
                                     </div>
 
-                                    <h3 className="text-2xl font-display font-semibold text-primary mb-3 group-hover:text-accent transition-colors">
+                                    <h3 className="text-2xl font-display font-semibold text-foreground mb-3 group-hover:text-accent transition-colors">
                                         {course.title}
                                     </h3>
 
-                                    <p className="text-slate-500 leading-relaxed mb-8 text-base">
+                                    <p className="text-muted-foreground leading-relaxed mb-8 text-base">
                                         {course.description}
                                     </p>
 
                                     <div className="mt-auto space-y-3">
                                         {course.features.slice(0, 3).map((feature, fIdx) => (
-                                            <div key={fIdx} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-blue-200" />
+                                            <div key={fIdx} className="flex items-center gap-3 text-sm font-medium text-foreground/80">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-accent/30" />
                                                 {feature.replace(/_/g, " ")}
                                             </div>
                                         ))}
@@ -120,7 +120,7 @@ export default function ProgramsPage() {
                                 </div>
 
                                 <div className="px-6 pb-6 pt-0 md:px-10 md:pb-10">
-                                    <Button asChild variant="outline" className="w-full rounded-full h-12 border-slate-200 text-slate-600 hover:text-primary hover:border-slate-300 hover:bg-slate-50 font-medium transition-all group-hover:border-accent group-hover:text-accent">
+                                    <Button asChild variant="outline" className="w-full rounded-full h-12 border-border text-muted-foreground hover:text-foreground hover:border-foreground hover:bg-muted font-medium transition-all group-hover:border-accent group-hover:text-accent">
                                         <Link href={`/programs/${course.id}`}>
                                             View Curriculum
                                             <ArrowRight className="ml-2 w-4 h-4" />

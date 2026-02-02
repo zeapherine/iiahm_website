@@ -52,17 +52,17 @@ export default function ContactPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black text-slate-900 leading-[0.9] tracking-tighter uppercase mb-12"
+                        className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black text-foreground leading-[0.9] tracking-tighter uppercase mb-12"
                     >
                         START YOUR <br />
-                        <span className="text-accent underline decoration-blue-200 underline-offset-[12px]">JOURNEY</span>.
+                        <span className="text-accent underline decoration-accent/20 underline-offset-[12px]">JOURNEY</span>.
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-lg md:text-2xl font-medium text-slate-600 max-w-2xl leading-relaxed"
+                        className="text-lg md:text-2xl font-medium text-muted-foreground max-w-2xl leading-relaxed"
                     >
                         Our admissions team is here to guide you through every step of your career elevation. Reach out to our Kokrajhar campus for a personalized counseling session.
                     </motion.p>
@@ -95,15 +95,15 @@ export default function ContactPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="p-8 bg-white rounded-[32px] border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-accent/30 transition-all duration-500 ease-out group hover:-translate-y-1"
+                                    className="p-8 bg-card rounded-[32px] border border-border shadow-2xl dark:shadow-none hover:border-accent/30 transition-all duration-500 ease-out group hover:-translate-y-1"
                                 >
 
-                                    <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                                    <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
                                         <item.icon className="w-6 h-6" />
                                     </div>
-                                    <h4 className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">{item.label}</h4>
-                                    <p className="text-xl font-bold text-slate-900 mb-1">{item.val}</p>
-                                    <p className="text-sm text-slate-500 font-medium">{item.desc}</p>
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">{item.label}</h4>
+                                    <p className="text-xl font-bold text-foreground mb-1">{item.val}</p>
+                                    <p className="text-sm text-muted-foreground font-medium">{item.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
@@ -143,20 +143,20 @@ export default function ContactPage() {
                         transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                         className="lg:col-span-8 order-1 lg:order-2"
                     >
-                        <div className="bg-white rounded-[40px] p-8 md:p-12 lg:p-16 border border-slate-100 shadow-2xl shadow-slate-200/60 relative overflow-hidden">
+                        <div className="bg-card rounded-[40px] p-8 md:p-12 lg:p-16 border border-border shadow-2xl dark:shadow-none relative overflow-hidden">
                             {/* Decorative gradient */}
                             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-accent via-blue-400 to-accent/20" />
 
                             {!isSuccess ? (
                                 <form onSubmit={handleSubmit} className="space-y-10">
                                     <div className="space-y-2">
-                                        <h2 className="text-3xl font-heading font-black text-slate-900 uppercase tracking-tighter">Inquiry Portal</h2>
-                                        <p className="text-slate-500 font-medium">Please provide your details below. A counselor will establish contact within 24 hours.</p>
+                                        <h2 className="text-3xl font-heading font-black text-foreground uppercase tracking-tighter">Inquiry Portal</h2>
+                                        <p className="text-muted-foreground font-medium">Please provide your details below. A counselor will establish contact within 24 hours.</p>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-3">
-                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-1">Full Name</label>
+                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Full Name</label>
                                             <input
                                                 required
                                                 type="text"
@@ -164,11 +164,11 @@ export default function ContactPage() {
                                                 value={formState.name}
                                                 onChange={handleChange}
                                                 placeholder="Enter your name"
-                                                className="w-full h-14 bg-slate-50 border border-slate-200 rounded-2xl px-6 font-medium focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-slate-300"
+                                                className="w-full h-14 bg-muted border border-border rounded-2xl px-6 font-medium focus:bg-card focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-muted-foreground/50 text-foreground"
                                             />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-1">Email Address</label>
+                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Email Address</label>
                                             <input
                                                 required
                                                 type="email"
@@ -176,14 +176,14 @@ export default function ContactPage() {
                                                 value={formState.email}
                                                 onChange={handleChange}
                                                 placeholder="you@example.com"
-                                                className="w-full h-14 bg-slate-50 border border-slate-200 rounded-2xl px-6 font-medium focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-slate-300"
+                                                className="w-full h-14 bg-muted border border-border rounded-2xl px-6 font-medium focus:bg-card focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-muted-foreground/50 text-foreground"
                                             />
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                         <div className="space-y-3">
-                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-1">Contact Number</label>
+                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Contact Number</label>
                                             <input
                                                 required
                                                 type="tel"
@@ -191,17 +191,17 @@ export default function ContactPage() {
                                                 value={formState.phone}
                                                 onChange={handleChange}
                                                 placeholder="+91"
-                                                className="w-full h-14 bg-slate-50 border border-slate-200 rounded-2xl px-6 font-medium focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-slate-300"
+                                                className="w-full h-14 bg-muted border border-border rounded-2xl px-6 font-medium focus:bg-card focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-muted-foreground/50 text-foreground"
                                             />
                                         </div>
                                         <div className="space-y-3">
-                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-1">Program of Interest</label>
+                                            <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Program of Interest</label>
                                             <div className="relative">
                                                 <select
                                                     name="program"
                                                     value={formState.program}
                                                     onChange={handleChange}
-                                                    className="w-full h-14 bg-slate-50 border border-slate-200 rounded-2xl px-6 font-medium focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all appearance-none cursor-pointer"
+                                                    className="w-full h-14 bg-muted border border-border rounded-2xl px-6 font-medium focus:bg-card focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all appearance-none cursor-pointer text-foreground"
                                                 >
                                                     <option value="aviation">AVIATION & CABIN CREW</option>
                                                     <option value="hotel">HOTEL MANAGEMENT</option>
@@ -216,7 +216,7 @@ export default function ContactPage() {
                                     </div>
 
                                     <div className="space-y-3">
-                                        <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 ml-1">Your Message</label>
+                                        <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground ml-1">Your Message</label>
                                         <textarea
                                             required
                                             name="message"
@@ -224,7 +224,7 @@ export default function ContactPage() {
                                             onChange={handleChange}
                                             rows={4}
                                             placeholder="Tell us about your career goals..."
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-6 font-medium focus:bg-white focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-slate-300 resize-none"
+                                            className="w-full bg-muted border border-border rounded-2xl p-6 font-medium focus:bg-card focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-muted-foreground/50 text-foreground resize-none"
                                         ></textarea>
                                     </div>
 
@@ -252,12 +252,12 @@ export default function ContactPage() {
                                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                     className="py-20 flex flex-col items-center text-center space-y-8"
                                 >
-                                    <div className="w-24 h-24 bg-green-50 rounded-3xl flex items-center justify-center border border-green-100 shadow-xl shadow-green-100">
+                                    <div className="w-24 h-24 bg-green-500/10 rounded-3xl flex items-center justify-center border border-green-500/20 shadow-xl shadow-green-500/5">
                                         <CheckCircle2 className="w-12 h-12 text-green-500" />
                                     </div>
                                     <div className="space-y-4">
-                                        <h3 className="text-4xl font-heading font-black text-slate-900 uppercase tracking-tighter">Inquiry Logged</h3>
-                                        <p className="text-xl font-medium text-slate-500 max-w-sm mx-auto leading-tight">
+                                        <h3 className="text-4xl font-heading font-black text-foreground uppercase tracking-tighter">Inquiry Logged</h3>
+                                        <p className="text-xl font-medium text-muted-foreground max-w-sm mx-auto leading-tight">
                                             Thank you, {formState.name}. Your details have been transmitted to our admissions team.
                                         </p>
                                     </div>

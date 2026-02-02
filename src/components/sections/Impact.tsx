@@ -57,7 +57,6 @@ export function Impact() {
                     </motion.p>
                 </div>
 
-                {/* Stats Grid */}
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
                     {stats.map((stat, idx) => (
                         <motion.div
@@ -66,13 +65,13 @@ export function Impact() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="group relative p-8 border border-white/10 bg-white/5 rounded-2xl backdrop-blur-sm transition-all duration-700 ease-out hover:bg-white/10 hover:border-white/30 hover:-translate-y-1"
+                            className="group relative p-8 border border-white/5 bg-white/5 dark:bg-slate-900/40 rounded-2xl backdrop-blur-sm transition-all duration-700 ease-out hover:bg-white/10 dark:hover:bg-slate-800/60 hover:border-white/20 hover:-translate-y-1"
                         >
                             <div className="flex items-center justify-between mb-8">
-                                <div className="p-3 bg-white/5 rounded-xl text-accent group-hover:bg-accent/10 transition-all duration-300">
+                                <div className="p-3 bg-white/5 dark:bg-accent/10 rounded-xl text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
                                     <stat.icon className="h-6 w-6" />
                                 </div>
-                                <div className="text-xs font-medium text-slate-400 bg-white/5 px-2 py-1 rounded-md tracking-widest">
+                                <div className="text-[10px] font-bold text-slate-400 bg-white/5 px-2 py-1 rounded-md tracking-widest uppercase">
                                     2025
                                 </div>
                             </div>
@@ -81,7 +80,7 @@ export function Impact() {
                                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                             </div>
 
-                            <p className="text-sm font-medium text-slate-300/60 uppercase tracking-widest">
+                            <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
                                 {stat.label}
                             </p>
                         </motion.div>

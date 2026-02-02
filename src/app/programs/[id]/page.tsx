@@ -59,30 +59,30 @@ export default function SyllabusPage() {
     return (
         <>
             <ApplicationPopup isOpen={showPopup} onClose={() => setShowPopup(false)} />
-            <div className="min-h-screen bg-slate-50 pt-24">
-                <header className="bg-white border-b border-slate-200 py-12 md:py-20">
+            <div className="min-h-screen bg-background pt-24">
+                <header className="bg-card/50 dark:bg-card/20 border-b border-border py-12 md:py-20 backdrop-blur-md">
                     <div className="container mx-auto px-4 md:px-6">
                         <Link href="/programs" className="inline-flex items-center text-accent text-sm font-semibold mb-8 hover:gap-2 transition-all">
                             <ArrowLeft className="w-4 h-4 mr-2" /> Back to Programs
                         </Link>
                         <div className="max-w-4xl">
-                            <span className="bg-blue-50 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">
+                            <span className="bg-accent/10 text-accent px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block border border-accent/20">
                                 {program.category}
                             </span>
-                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-semibold text-primary tracking-tight mb-6">
+                            <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-semibold text-foreground tracking-tight mb-6">
                                 {program.title}
                             </h1>
-                            <p className="text-xl text-slate-500 leading-relaxed max-w-2xl">
+                            <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
                                 {program.description}
                             </p>
                         </div>
 
-                        <div className="flex flex-wrap gap-8 mt-12 border-t border-slate-100 pt-8">
-                            <div className="flex items-center gap-3 text-slate-600">
+                        <div className="flex flex-wrap gap-8 mt-12 border-t border-border pt-8">
+                            <div className="flex items-center gap-3 text-muted-foreground">
                                 <Clock className="w-5 h-5 text-accent" />
                                 <span className="font-semibold">{program.duration}</span>
                             </div>
-                            <div className="flex items-center gap-3 text-slate-600">
+                            <div className="flex items-center gap-3 text-muted-foreground">
                                 <MapPin className="w-5 h-5 text-accent" />
                                 <span className="font-semibold">{program.location}</span>
                             </div>
@@ -94,17 +94,17 @@ export default function SyllabusPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
                         <section className="lg:col-span-2 space-y-12">
                             <div>
-                                <h2 className="text-2xl font-display font-semibold text-primary mb-8 flex items-center gap-3">
+                                <h2 className="text-2xl font-display font-semibold text-foreground mb-8 flex items-center gap-3">
                                     <BookOpen className="w-6 h-6 text-accent" />
                                     Course Curriculum
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {program.modules.map((module, i) => (
-                                        <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4">
-                                            <div className="w-8 h-8 rounded-lg bg-slate-50 flex items-center justify-center text-slate-400 font-bold text-xs shrink-0">
+                                        <div key={i} className="bg-card p-6 rounded-2xl border border-border shadow-sm flex items-center gap-4 group hover:border-accent/40 transition-colors">
+                                            <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center text-muted-foreground font-bold text-xs shrink-0">
                                                 {i + 1}
                                             </div>
-                                            <span className="font-medium text-slate-700">{module}</span>
+                                            <span className="font-medium text-foreground/80">{module}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -122,24 +122,24 @@ export default function SyllabusPage() {
                         </section>
 
                         <aside className="space-y-8">
-                            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-100 shadow-sm">
-                                <h3 className="text-xl font-display font-semibold text-primary mb-6">Program Outcomes</h3>
+                            <div className="bg-card p-6 sm:p-8 rounded-3xl border border-border shadow-sm">
+                                <h3 className="text-xl font-display font-semibold text-foreground mb-6">Program Outcomes</h3>
                                 <ul className="space-y-4">
                                     {program.outcomes.map((outcome, i) => (
-                                        <li key={i} className="flex gap-3 text-sm text-slate-600 leading-tight">
+                                        <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-tight">
                                             <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
                                             {outcome}
                                         </li>
                                     ))}
                                 </ul>
-                                <Button variant="outline" className="w-full mt-8 rounded-xl border-slate-200" onClick={() => alert("Downloading brochure...")}>
+                                <Button variant="outline" className="w-full mt-8 rounded-xl border-border text-muted-foreground hover:text-foreground hover:bg-muted" onClick={() => alert("Downloading brochure...")}>
                                     <Download className="mr-2 w-4 h-4" /> Download Full Brochure
                                 </Button>
                             </div>
 
-                            <div className="bg-blue-50/50 p-6 sm:p-8 rounded-3xl border border-blue-100/50">
-                                <h3 className="text-lg font-display font-semibold text-primary mb-4">Admissions Help</h3>
-                                <p className="text-sm text-slate-600 mb-6 leading-relaxed">Have questions about eligibility or the application process? Our counselors are here to guide you.</p>
+                            <div className="bg-accent/5 p-6 sm:p-8 rounded-3xl border border-accent/10">
+                                <h3 className="text-lg font-display font-semibold text-foreground mb-4">Admissions Help</h3>
+                                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">Have questions about eligibility or the application process? Our counselors are here to guide you.</p>
                                 <a href="tel:+91XXXXXXXXXX" className="text-accent font-bold text-lg hover:underline transition-all tracking-tight">+91 XXX XXX XXXX</a>
                             </div>
                         </aside>

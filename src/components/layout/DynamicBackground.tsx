@@ -1,37 +1,39 @@
 "use client";
 
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function DynamicBackground() {
     const { scrollYProgress } = useScroll();
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-    // We use spring to smooth out the scroll input even further for that "liquid" feel
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
     const smoothProgress = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.001
     });
 
-    // Define an ethereal color palette that shifts as we scroll
-    // Light Mode Palette: White -> Very Light Slate -> Soft Off-White -> White
-    // Dark Mode Palette: Deep Slate -> Midnight -> Dark Blue-Black -> Deep Slate
-    // Note: We use CSS variables so it adapts to the current theme
+    // Handle theme-aware colors
+    // Light: White -> Soft Azure -> Subtle Lavender -> Slate-50
+    // Dark: Deep Midnight -> Dark Blue -> Deep Slate -> Deep Midnight
+    const colors = mounted && resolvedTheme === 'dark'
+        ? ["#020617", "#0f172a", "#1e293b", "#020617"]
+        : ["#ffffff", "#f0f9ff", "#f5f3ff", "#f8fafc"];
 
-    const bgColor = useTransform(
-        smoothProgress,
-        [0, 0.4, 0.8, 1],
-        [
-            "#ffffff",        // Start: Pure White
-            "#f0f9ff",        // Middle-Top: Soft Azure
-            "#f5f3ff",        // Middle-Bottom: Subtle Lavender
-            "#f8fafc"         // End: Slate-50
-        ]
-    );
+    const bgColor = useTransform(smoothProgress, [0, 0.4, 0.8, 1], colors);
 
     return (
         <motion.div
             style={{ backgroundColor: bgColor }}
-            className="fixed inset-0 -z-20 pointer-events-none transition-colors duration-1000"
+            className="fixed inset-0 -z-10 pointer-events-none"
         />
     );
 }

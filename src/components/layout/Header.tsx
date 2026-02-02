@@ -82,7 +82,7 @@ export default function Header() {
                                 key={link.name}
                                 href={link.href}
                                 className={cn(
-                                    "text-sm font-medium tracking-wide transition-all relative py-1",
+                                    "text-sm font-heading font-medium tracking-wide transition-all relative py-1",
                                     pathname === link.href
                                         ? "text-accent font-semibold"
                                         : "text-muted-foreground hover:text-foreground"
