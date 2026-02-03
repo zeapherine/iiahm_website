@@ -36,16 +36,16 @@ const programs = [
 
 export function Programs() {
     return (
-        <section className="bg-slate-50/50 dark:bg-slate-950 py-32 overflow-hidden transition-colors duration-500">
+        <section className="bg-slate-50/50 dark:bg-slate-950 py-20 md:py-32 overflow-hidden transition-colors duration-500">
             <div className="container mx-auto px-4 md:px-6">
-                <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
-                    <div className="space-y-4">
+                <div className="mb-12 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 text-center md:text-left">
+                    <div className="space-y-3 md:space-y-4">
                         <motion.div
                             initial={{ opacity: 0, y: 10 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background border border-border text-muted-foreground text-xs font-semibold uppercase tracking-wider"
+                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-background border border-border text-muted-foreground text-[10px] md:text-xs font-semibold uppercase tracking-wider"
                         >
 
                             <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
@@ -56,7 +56,7 @@ export function Programs() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                            className="font-display text-4xl md:text-6xl font-semibold tracking-tight text-foreground"
+                            className="font-display text-3xl md:text-6xl font-semibold tracking-tight text-foreground"
                         >
                             Elite <span className="text-accent">Career Tracks</span>
                         </motion.h2>
@@ -66,13 +66,13 @@ export function Programs() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="max-w-md text-muted-foreground text-lg leading-relaxed"
+                        className="max-w-md text-muted-foreground text-base md:text-lg leading-relaxed"
                     >
                         Our programs are engineered to meet global standards, ensuring every graduate is industry-ready and elite.
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
                     {programs.map((program, idx) => (
                         <motion.div
                             key={idx}
@@ -84,48 +84,48 @@ export function Programs() {
                         >
                             <Card className="h-full border-0 ring-1 ring-border bg-card shadow-subtle dark:shadow-none hover:shadow-float dark:hover:ring-accent/50 transition-all duration-700 ease-out flex flex-col rounded-[1.5rem] overflow-hidden hover:-translate-y-1">
                                 {/* Abstract Visual Container (Replaces Image) */}
-                                <div className={cn("relative h-56 md:h-64 overflow-hidden bg-gradient-to-br transition-all duration-700", program.color)}>
+                                <div className={cn("relative h-48 sm:h-56 md:h-64 overflow-hidden bg-gradient-to-br transition-all duration-700", program.color)}>
                                     <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                                    <div className="absolute top-6 left-6 z-20">
-                                        <div className="bg-white/20 backdrop-blur-md text-white w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full border border-white/20">
+                                    <div className="absolute top-4 left-4 md:top-6 md:left-6 z-20">
+                                        <div className="bg-white/20 backdrop-blur-md text-white w-8 h-8 md:w-10 md:h-10 flex items-center justify-center font-bold text-xs md:text-sm rounded-full border border-white/20">
                                             0{idx + 1}
                                         </div>
                                     </div>
-                                    <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-wrap gap-2">
+                                    <div className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 z-20 flex flex-wrap gap-2">
                                         {program.tags.map((tag, i) => (
-                                            <span key={i} className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full">
+                                            <span key={i} className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-2.5 py-1 text-[8px] md:text-[10px] font-semibold uppercase tracking-wider rounded-full">
                                                 {tag}
                                             </span>
                                         ))}
                                     </div>
                                     <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
-                                        <program.icon className="w-32 h-32 text-white" />
+                                        <program.icon className="w-24 h-24 md:w-32 md:h-32 text-white" />
                                     </div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6 lg:p-8 flex-1 flex flex-col bg-white dark:bg-slate-900/40 backdrop-blur-sm">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="p-2.5 bg-accent/10 dark:bg-accent/20 rounded-xl text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                                            <program.icon className="h-6 w-6" />
+                                <div className="p-5 md:p-8 flex-1 flex flex-col bg-white dark:bg-slate-900/40 backdrop-blur-sm">
+                                    <div className="flex items-center gap-3 md:gap-4 mb-4">
+                                        <div className="p-2 md:p-2.5 bg-accent/10 dark:bg-accent/20 rounded-xl text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors text-xs md:text-sm">
+                                            <program.icon className="h-5 w-5 md:h-6 md:w-6" />
                                         </div>
-                                        <h3 className="font-display text-2xl font-semibold text-foreground dark:text-white group-hover:text-accent transition-colors">
+                                        <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground dark:text-white group-hover:text-accent transition-colors">
                                             {program.title}
                                         </h3>
                                     </div>
 
-                                    <p className="text-muted-foreground leading-relaxed mb-8">
+                                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6 md:mb-8">
                                         {program.description}
                                     </p>
 
-                                    <div className="mt-auto border-t border-border pt-6 flex items-center justify-between">
-                                        <span className="text-xs font-bold text-muted-foreground/60 uppercase tracking-wider">12 Months</span>
+                                    <div className="mt-auto border-t border-border pt-5 md:pt-6 flex items-center justify-between">
+                                        <span className="text-[10px] md:text-xs font-bold text-muted-foreground/60 uppercase tracking-wider">12 Months</span>
                                         <Button
                                             asChild
                                             variant="ghost"
                                             size="sm"
-                                            className="text-foreground hover:text-accent hover:bg-transparent p-0 font-medium"
+                                            className="text-foreground hover:text-accent hover:bg-transparent p-0 font-medium text-xs md:text-sm"
                                         >
                                             <Link href={`/programs/${program.id}`}>
                                                 View Syllabus <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -138,9 +138,9 @@ export function Programs() {
                     ))}
                 </div>
 
-                <div className="mt-16 text-center">
+                <div className="mt-12 md:mt-16 text-center">
                     <Link href="/programs">
-                        <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-border text-muted-foreground hover:text-foreground hover:border-foreground">
+                        <Button variant="outline" size="lg" className="rounded-full px-8 h-12 border-border text-muted-foreground hover:text-foreground hover:border-foreground w-full sm:w-auto">
                             View All Programs
                         </Button>
                     </Link>

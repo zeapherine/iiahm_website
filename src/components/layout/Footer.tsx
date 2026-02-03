@@ -22,16 +22,16 @@ export default function Footer() {
             </div>
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-16 text-center sm:text-left">
                     {/* Brand Section */}
-                    <div className="space-y-6">
+                    <div className="space-y-6 flex flex-col items-center sm:items-start">
                         <h2 className="text-3xl font-display font-semibold text-white tracking-tight">
                             IIA<span className="text-accent">H</span>M
                         </h2>
-                        <p className="text-slate-400 leading-relaxed text-sm">
+                        <p className="text-slate-400 leading-relaxed text-sm max-w-xs">
                             Building global careers in Aviation & Hospitality. The premier institute for professional excellence in Northeast India.
                         </p>
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-4 pt-2">
                             {[
                                 { Icon: Instagram, href: "https://www.instagram.com/ianinstitute/" },
                                 { Icon: Linkedin, href: "https://www.linkedin.com/in/ianinstitute/" },
@@ -53,7 +53,7 @@ export default function Footer() {
                     {/* Quick Links */}
                     <div className="space-y-6">
                         <h3 className="text-white font-semibold text-lg">Quick Links</h3>
-                        <ul className="space-y-3">
+                        <ul className="space-y-3 flex flex-col items-center sm:items-start">
                             {[
                                 { name: "NGO - Scholarship", href: "/ngo" },
                                 { name: "About Us", href: "/about" },
@@ -62,7 +62,7 @@ export default function Footer() {
                             ].map((link, i) => (
                                 <li key={i}>
                                     <Link href={link.href} className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
-                                        <ChevronRight className="w-3 h-3 mr-2 text-white/20" />
+                                        <ChevronRight className="w-3 h-3 mr-2 text-white/20 hidden sm:block" />
                                         {link.name}
                                     </Link>
                                 </li>
@@ -73,7 +73,7 @@ export default function Footer() {
                     {/* Programs */}
                     <div className="space-y-6">
                         <h3 className="text-white font-semibold text-lg">Programs</h3>
-                        <ul className="space-y-3">
+                        <ul className="space-y-3 flex flex-col items-center sm:items-start">
                             {[
                                 { name: "Air Hostess & Crew", id: "air-hostess" },
                                 { name: "Hotel Management", id: "hotel-management" },
@@ -81,7 +81,7 @@ export default function Footer() {
                             ].map((program, i) => (
                                 <li key={i}>
                                     <Link href={`/programs/${program.id}`} className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
-                                        <ChevronRight className="w-3 h-3 mr-2 text-white/20" />
+                                        <ChevronRight className="w-3 h-3 mr-2 text-white/20 hidden sm:block" />
                                         {program.name}
                                     </Link>
                                 </li>
@@ -92,18 +92,17 @@ export default function Footer() {
                     {/* Contact Info */}
                     <div className="space-y-6">
                         <h3 className="text-white font-semibold text-lg">Contact Us</h3>
-                        <div className="space-y-4 text-sm">
-                            <div className="flex items-start space-x-3">
+                        <div className="space-y-4 text-sm flex flex-col items-center sm:items-start">
+                            <div className="flex items-start space-x-3 text-center sm:text-left">
                                 <MapPin className="w-5 h-5 shrink-0 text-accent mt-0.5" />
                                 <span className="text-slate-400">SBI Building, 4th Floor, Tengapara, Kokrajhar, Assam</span>
                             </div>
-                            <div className="flex flex-col space-y-2">
+                            <div className="flex flex-col space-y-2 items-center sm:items-start">
                                 <div className="flex items-center space-x-3">
                                     <Phone className="w-5 h-5 shrink-0 text-accent" />
                                     <span className="text-slate-400">+91 93942-37112</span>
                                 </div>
-                                <div className="flex items-center space-x-3">
-                                    <Phone className="w-5 h-5 shrink-0 text-accent opacity-0" />
+                                <div className="sm:pl-8">
                                     <span className="text-slate-400">+91 81340-36650</span>
                                 </div>
                             </div>
@@ -116,7 +115,7 @@ export default function Footer() {
                 </div>
 
                 <div className="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-slate-500 text-xs">
+                    <p className="text-slate-500 text-center text-xs">
                         © {year} IIAHM. All rights reserved.
                     </p>
                     <div className="flex gap-8">

@@ -1,0 +1,11 @@
+# Robots.txt for IIAHM Website
+# https://www.ianinstitute.in
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.ianinstitute.in/sitemap.xml
+
+# Disallow admin or private paths if any
+Disallow: /api/

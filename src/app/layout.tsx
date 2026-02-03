@@ -9,6 +9,7 @@ import { LoadingBar } from "@/components/ui/LoadingBar";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import DynamicBackground from "@/components/layout/DynamicBackground";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
+import { AllJsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,8 +26,66 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "IIAHM | International Institute of Aviation and Hotel Management",
-  description: "The premier gateway to international careers in Aviation and Hotel Management for the talented youth of Northeast India.",
+  metadataBase: new URL('https://www.ianinstitute.in'),
+  title: {
+    default: "IIAHM | International Institute of Aviation and Hotel Management",
+    template: "%s | IIAHM"
+  },
+  description: "The premier gateway to international careers in Aviation and Hotel Management for the talented youth of Northeast India. ISO 9001:2015 certified with 500+ global placements.",
+  keywords: [
+    "aviation training",
+    "hotel management",
+    "air hostess training",
+    "cabin crew training",
+    "northeast india",
+    "kokrajhar",
+    "hospitality courses",
+    "airport ground staff",
+    "IIAHM",
+    "aviation institute assam"
+  ],
+  authors: [{ name: "IIAHM", url: "https://www.ianinstitute.in" }],
+  creator: "IIAHM",
+  publisher: "International Institute of Aviation and Hotel Management",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://www.ianinstitute.in",
+    siteName: "IIAHM",
+    title: "IIAHM | International Institute of Aviation and Hotel Management",
+    description: "The premier gateway to international careers in Aviation and Hotel Management for the talented youth of Northeast India.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "IIAHM - International Institute of Aviation and Hotel Management",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IIAHM | Aviation & Hotel Management Institute",
+    description: "The premier gateway to international careers in Aviation and Hotel Management for Northeast India.",
+    images: ["/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.ianinstitute.in",
+  },
+  verification: {
+    google: "your-google-verification-code", // Replace with actual code
+  },
 };
 
 export default function RootLayout({
@@ -36,6 +95,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <AllJsonLd />
+      </head>
       <body
         className={`${inter.variable} ${plusJakartaSans.variable} font-sans antialiased text-foreground bg-background`}
         suppressHydrationWarning
