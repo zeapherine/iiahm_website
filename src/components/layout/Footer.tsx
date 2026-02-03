@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Instagram, Linkedin, Twitter, Mail, Phone, MapPin, ChevronRight, Globe } from "lucide-react";
+import { Instagram, Linkedin, Facebook, Mail, Phone, MapPin, ChevronRight, Globe } from "lucide-react";
 
 export default function Footer() {
     const [year, setYear] = useState(2025); // Default fallback
@@ -33,10 +33,9 @@ export default function Footer() {
                         </p>
                         <div className="flex items-center space-x-4">
                             {[
-                                { Icon: Instagram, href: "https://instagram.com/iiahm_official" },
-                                { Icon: Linkedin, href: "https://linkedin.com/school/iiahm" },
-                                { Icon: Twitter, href: "https://twitter.com/iiahm" },
-                                { Icon: Globe, href: "https://facebook.com/iiahm" } // Using Globe as fallback for FB if Lucide Facebook is missing or different
+                                { Icon: Instagram, href: "https://www.instagram.com/ianinstitute/" },
+                                { Icon: Linkedin, href: "https://www.linkedin.com/in/ianinstitute/" },
+                                { Icon: Facebook, href: "https://www.facebook.com/IaninstituteKokrajhar/" }
                             ].map(({ Icon, href }, i) => (
                                 <Link
                                     key={i}
@@ -56,9 +55,9 @@ export default function Footer() {
                         <h3 className="text-white font-semibold text-lg">Quick Links</h3>
                         <ul className="space-y-3">
                             {[
-                                { name: "Career Placement", href: "/impact" },
-                                { name: "Student Stories", href: "/about" },
+                                { name: "NGO - Scholarship", href: "/ngo" },
                                 { name: "About Us", href: "/about" },
+                                { name: "Programs", href: "/programs" },
                                 { name: "Contact", href: "/contact" }
                             ].map((link, i) => (
                                 <li key={i}>
@@ -76,15 +75,14 @@ export default function Footer() {
                         <h3 className="text-white font-semibold text-lg">Programs</h3>
                         <ul className="space-y-3">
                             {[
-                                "Aviation & Hostess",
-                                "Hotel Management",
-                                "Cabin Crew Services",
-                                "Hospitality Management"
-                            ].map((link, i) => (
+                                { name: "Air Hostess & Crew", id: "air-hostess" },
+                                { name: "Hotel Management", id: "hotel-management" },
+                                { name: "Airport Ground Staff", id: "ground-staff" }
+                            ].map((program, i) => (
                                 <li key={i}>
-                                    <Link href="/programs" className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
+                                    <Link href={`/programs/${program.id}`} className="text-slate-400 hover:text-accent transition-colors flex items-center text-sm">
                                         <ChevronRight className="w-3 h-3 mr-2 text-white/20" />
-                                        {link}
+                                        {program.name}
                                     </Link>
                                 </li>
                             ))}
@@ -97,15 +95,21 @@ export default function Footer() {
                         <div className="space-y-4 text-sm">
                             <div className="flex items-start space-x-3">
                                 <MapPin className="w-5 h-5 shrink-0 text-accent mt-0.5" />
-                                <span className="text-slate-400">Kokrajhar, Bodoland Territorial Region (BTR), Assam, India</span>
+                                <span className="text-slate-400">SBI Building, 4th Floor, Tengapara, Kokrajhar, Assam</span>
                             </div>
-                            <div className="flex items-center space-x-3">
-                                <Phone className="w-5 h-5 shrink-0 text-accent" />
-                                <span className="text-slate-400">+91 XXX XXX XXXX</span>
+                            <div className="flex flex-col space-y-2">
+                                <div className="flex items-center space-x-3">
+                                    <Phone className="w-5 h-5 shrink-0 text-accent" />
+                                    <span className="text-slate-400">+91 93942-37112</span>
+                                </div>
+                                <div className="flex items-center space-x-3">
+                                    <Phone className="w-5 h-5 shrink-0 text-accent opacity-0" />
+                                    <span className="text-slate-400">+91 81340-36650</span>
+                                </div>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <Mail className="w-5 h-5 shrink-0 text-accent" />
-                                <span className="text-slate-400">info@iiahm.com</span>
+                                <span className="text-slate-400">ian@ianinstitute.in</span>
                             </div>
                         </div>
                     </div>

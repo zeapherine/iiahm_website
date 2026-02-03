@@ -23,17 +23,17 @@ export function ApplicationPopup({ isOpen, onClose }: { isOpen: boolean; onClose
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative w-full max-w-xl bg-white shadow-2xl rounded-3xl overflow-hidden border border-slate-100"
+                        className="relative w-full max-w-xl bg-white dark:bg-slate-950 shadow-2xl rounded-3xl overflow-hidden border border-slate-100 dark:border-white/10 transition-colors duration-500"
                     >
                         {/* Status Header */}
-                        <div className="bg-slate-50 px-8 py-6 border-b border-slate-100 flex justify-between items-center">
+                        <div className="bg-slate-50 dark:bg-slate-900 px-8 py-6 border-b border-slate-100 dark:border-white/5 flex justify-between items-center">
                             <div>
-                                <h3 className="font-display text-xl font-semibold text-primary">Admission Enquiry</h3>
-                                <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Academic Year 2025-26</p>
+                                <h3 className="font-display text-xl font-semibold text-primary dark:text-white">Admission Enquiry</h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wider mt-1">Academic Year 2025-26</p>
                             </div>
                             <button
                                 onClick={onClose}
-                                className="p-2 hover:bg-slate-200 rounded-full transition-colors text-slate-400"
+                                className="p-2 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition-colors text-slate-400"
                             >
                                 <X className="w-5 h-5" />
                             </button>
@@ -47,7 +47,7 @@ export function ApplicationPopup({ isOpen, onClose }: { isOpen: boolean; onClose
                                     <input
                                         type="text"
                                         placeholder="Full Name"
-                                        className="w-full h-12 bg-white border border-slate-200 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl"
+                                        className="w-full h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl text-foreground"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -55,18 +55,17 @@ export function ApplicationPopup({ isOpen, onClose }: { isOpen: boolean; onClose
                                     <input
                                         type="tel"
                                         placeholder="+91"
-                                        className="w-full h-12 bg-white border border-slate-200 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl"
+                                        className="w-full h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl text-foreground"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 block ml-1">Academic Interest</label>
-                                <select className="w-full h-12 bg-white border border-slate-200 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl appearance-none cursor-pointer">
-                                    <option>Aviation & Air Hostess Diploma</option>
+                                <select className="w-full h-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 px-4 text-base md:text-sm font-medium focus:border-accent focus:ring-1 focus:ring-accent outline-none transition-all rounded-xl appearance-none cursor-pointer text-foreground">
+                                    <option>Air Hostess & Cabin Crew Diploma</option>
                                     <option>Hotel Management Diploma</option>
-                                    <option>Hospitality & Tourism Certificate</option>
-                                    <option>Corporate Desk Operations</option>
+                                    <option>Airport Ground Staff Diploma</option>
                                 </select>
                             </div>
 

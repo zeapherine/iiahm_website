@@ -1,45 +1,42 @@
 "use client"
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Plane, Building2, Users } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const programs = [
     {
-        id: "aviation",
-        title: "Aviation & Air Hostess",
-        description: "Professional training in cabin services, safety, and international grooming standards.",
+        id: "air-hostess",
+        title: "Air Hostess & Crew",
+        description: "Professional training in cabin services, safety, and international grooming standards for global airlines.",
         icon: Plane,
-        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=2940&auto=format&fit=crop",
-        size: "large",
-        tags: ["Global Placement", "Soft Skills"]
+        color: "from-blue-600 to-indigo-600",
+        tags: ["Global Placement", "ICAO Standards"]
     },
     {
-        id: "hotel",
+        id: "hotel-management",
         title: "Hotel Management",
-        description: "Comprehensive front-office and F&B management for luxury hospitality.",
+        description: "Comprehensive front-office, F&B, and operations management for the luxury hospitality industry.",
         icon: Building2,
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2940&auto=format&fit=crop",
-        size: "normal",
-        tags: ["5-Star Internships"]
+        color: "from-emerald-600 to-teal-600",
+        tags: ["5-Star Internships", "Direct-to-Job"]
     },
     {
-        id: "hospitality",
-        title: "Hospitality & Tourism",
-        description: "Master global tourism dynamics and customer relations in a tech-first world.",
+        id: "ground-staff",
+        title: "Airport Ground Staff",
+        description: "Master the technical operations of international airports, from ticketing to ramp management.",
         icon: Users,
-        image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2940&auto=format&fit=crop",
-        size: "normal",
-        tags: ["Travel Strategy"]
+        color: "from-amber-600 to-orange-600",
+        tags: ["Aviation Ops", "Security Training"]
     },
 ];
 
 export function Programs() {
     return (
-        <section className="bg-muted/30 py-32 overflow-hidden">
+        <section className="bg-slate-50/50 dark:bg-slate-950 py-32 overflow-hidden transition-colors duration-500">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8 text-center md:text-left">
                     <div className="space-y-4">
@@ -86,36 +83,34 @@ export function Programs() {
                             className="group h-full"
                         >
                             <Card className="h-full border-0 ring-1 ring-border bg-card shadow-subtle dark:shadow-none hover:shadow-float dark:hover:ring-accent/50 transition-all duration-700 ease-out flex flex-col rounded-[1.5rem] overflow-hidden hover:-translate-y-1">
-                                {/* Image Container */}
-                                <div className="relative h-56 md:h-64 overflow-hidden">
-                                    <Image
-                                        src={program.image}
-                                        alt={program.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-80 dark:opacity-40" />
+                                {/* Abstract Visual Container (Replaces Image) */}
+                                <div className={cn("relative h-56 md:h-64 overflow-hidden bg-gradient-to-br transition-all duration-700", program.color)}>
+                                    <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                                     <div className="absolute top-6 left-6 z-20">
-                                        <div className="bg-background/90 dark:bg-card/90 backdrop-blur-md text-foreground w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full shadow-sm border border-border">
+                                        <div className="bg-white/20 backdrop-blur-md text-white w-10 h-10 flex items-center justify-center font-bold text-sm rounded-full border border-white/20">
                                             0{idx + 1}
                                         </div>
                                     </div>
                                     <div className="absolute bottom-6 left-6 right-6 z-20 flex flex-wrap gap-2">
                                         {program.tags.map((tag, i) => (
-                                            <span key={i} className="bg-background/40 dark:bg-accent/10 backdrop-blur-md text-foreground dark:text-accent border border-border/50 dark:border-accent/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full">
+                                            <span key={i} className="bg-white/20 backdrop-blur-md text-white border border-white/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider rounded-full">
                                                 {tag}
                                             </span>
                                         ))}
                                     </div>
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                        <program.icon className="w-32 h-32 text-white" />
+                                    </div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-6 lg:p-8 flex-1 flex flex-col dark:bg-slate-900/20">
+                                <div className="p-6 lg:p-8 flex-1 flex flex-col bg-white dark:bg-slate-900/40 backdrop-blur-sm">
                                     <div className="flex items-center gap-4 mb-4">
-                                        <div className="p-2.5 bg-accent/10 rounded-xl text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                                        <div className="p-2.5 bg-accent/10 dark:bg-accent/20 rounded-xl text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
                                             <program.icon className="h-6 w-6" />
                                         </div>
-                                        <h3 className="font-display text-2xl font-semibold text-foreground group-hover:text-accent transition-colors">
+                                        <h3 className="font-display text-2xl font-semibold text-foreground dark:text-white group-hover:text-accent transition-colors">
                                             {program.title}
                                         </h3>
                                     </div>

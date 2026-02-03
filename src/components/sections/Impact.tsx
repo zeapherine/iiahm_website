@@ -6,10 +6,10 @@ import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
 import { Users, Globe, Building, Award } from "lucide-react";
 
 const stats = [
-    { label: "Lives Impacted", value: 5000, suffix: "+", icon: Users, theme: "noir" },
-    { label: "Local Placement", value: 85, suffix: "%", icon: Award, theme: "indigo" },
-    { label: "Training Centers", value: 3, suffix: "", icon: Building, theme: "noir" },
-    { label: "NGO Years", value: 7, suffix: "", icon: Globe, theme: "noir" },
+    { label: "Global Placements", value: 500, suffix: "+", icon: Globe, theme: "noir" },
+    { label: "Job Assistance", value: 100, suffix: "%", icon: Award, theme: "indigo" },
+    { label: "Elite Courses", value: 6, suffix: "", icon: Users, theme: "noir" },
+    { label: "Years of Excellence", value: 5, suffix: "+", icon: Building, theme: "noir" },
 ];
 
 export function Impact() {

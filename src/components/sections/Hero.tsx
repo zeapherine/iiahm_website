@@ -57,8 +57,8 @@ export function Hero() {
                             className="inline-flex items-center gap-2 bg-muted border border-border text-muted-foreground px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider"
                         >
 
-                            <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
-                            International Standards. Global Careers.
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+                            No. 1 Global Placement Management Program in Northeast India — Est. 2020.
                         </motion.div>
 
                         <motion.h1
@@ -69,7 +69,7 @@ export function Hero() {
                         >
                             Elevate Your <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground to-accent">
-                                Professional Future.
+                                Global Career.
                             </span>
                         </motion.h1>
 
@@ -79,8 +79,7 @@ export function Hero() {
                             transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-lg"
                         >
-                            Join the premier institute for Aviation and Hotel Management.
-                            Where academic rigor meets industry elegance.
+                            Our mission matches local potential with global industry standards — transforming lives, building careers, and creating success stories for the youth of Northeast India every year.
                         </motion.p>
 
                         <motion.div
@@ -134,19 +133,18 @@ export function Hero() {
                             initial={{ opacity: 0, scale: 0.98, rotateY: 5 }}
                             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                             transition={{ delay: 0.4, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute inset-0 bg-muted dark:bg-slate-900/50 rounded-[2rem] border border-border shadow-2xl overflow-hidden"
+                            className="absolute inset-0 bg-slate-50 dark:bg-slate-950 rounded-[2rem] border border-slate-200/50 dark:border-white/5 shadow-2xl overflow-hidden"
                         >
-                            {/* Main Hero Image */}
+                            {/* Abstract Visual Replacement for Image */}
                             <motion.div style={{ y: imageY }} className="absolute inset-0 z-0">
-                                <Image
-                                    src="https://images.unsplash.com/photo-1544642899-f0d6e5f6ed6f?q=80&w=2560&auto=format&fit=crop"
-                                    alt="Aviation Academy Students"
-                                    fill
-                                    sizes="(max-width: 1024px) 0px, 50vw"
-                                    className="object-cover transition-transform duration-1000 hover:scale-105"
-                                    priority
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 dark:from-background/90 via-transparent to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-900 to-accent/20 dark:from-slate-950 dark:via-slate-900 dark:to-accent/10" />
+                                <div className="absolute inset-0 opacity-30">
+                                    <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px] animate-pulse" />
+                                    <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px] animate-pulse" style={{ animationDelay: "2s" }} />
+                                </div>
+                                {/* Technical Grid Overlay */}
+                                <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 dark:from-background via-transparent to-transparent" />
                             </motion.div>
 
                             {/* Abstract Gradient Overlay - Subtle Shimmer */}

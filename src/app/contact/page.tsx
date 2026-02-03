@@ -32,7 +32,7 @@ export default function ContactPage() {
     return (
         <div className="flex flex-col bg-transparent min-h-screen pt-24 overflow-x-hidden">
             {/* Background Narrative Element */}
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/50 -skew-x-12 transform origin-top translate-x-20 pointer-events-none hidden lg:block" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/50 dark:bg-blue-950/10 -skew-x-12 transform origin-top translate-x-20 pointer-events-none hidden lg:block" />
 
             {/* Header Section */}
             <section className="relative container mx-auto px-4 md:px-6 py-20 lg:py-32">
@@ -79,14 +79,14 @@ export default function ContactPage() {
                                 {
                                     icon: Mail,
                                     label: "Email Support",
-                                    val: "info@ianinstitute.com",
+                                    val: "ian@ianinstitute.in",
                                     desc: "For general queries & documentation"
                                 },
                                 {
                                     icon: Phone,
                                     label: "Admissions Helpline",
-                                    val: "+91 XXX XXX XXXX",
-                                    desc: "Mon-Sat, 9:00 AM - 6:00 PM"
+                                    val: "+91 93942-37112",
+                                    desc: "Secondary: +91 81340-36650"
                                 }
                             ].map((item, i) => (
                                 <motion.div
@@ -95,10 +95,9 @@ export default function ContactPage() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                    className="p-8 bg-card rounded-[32px] border border-border shadow-2xl dark:shadow-none hover:border-accent/30 transition-all duration-500 ease-out group hover:-translate-y-1"
+                                    className="p-8 bg-card dark:bg-slate-900/40 backdrop-blur-sm rounded-[32px] border border-border dark:border-white/5 shadow-2xl dark:shadow-none hover:border-accent/30 transition-all duration-500 ease-out group hover:-translate-y-1"
                                 >
-
-                                    <div className="w-12 h-12 rounded-2xl bg-muted flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
+                                    <div className="w-12 h-12 rounded-2xl bg-muted dark:bg-slate-800 flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
                                         <item.icon className="w-6 h-6" />
                                     </div>
                                     <h4 className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">{item.label}</h4>
@@ -113,7 +112,7 @@ export default function ContactPage() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="p-8 bg-slate-900 text-white rounded-[32px] overflow-hidden relative"
+                            className="p-8 bg-slate-900 dark:bg-slate-950 text-white rounded-[32px] overflow-hidden relative border border-white/5"
                         >
                             <div className="absolute top-0 right-0 p-8 opacity-10">
                                 <Calendar className="w-24 h-24" />
@@ -123,8 +122,9 @@ export default function ContactPage() {
                                 <div className="flex gap-3">
                                     <MapPin className="w-5 h-5 shrink-0 text-accent/60" />
                                     <p className="text-slate-300 text-sm leading-relaxed">
-                                        Main Campus, Near J.D. Road, <br />
-                                        Kokrajhar, BTR, Assam - 783370
+                                        SBI Building, 4th Floor, <br />
+                                        Tengapara, Kokrajhar, <br />
+                                        BTR, Assam - 783370
                                     </p>
                                 </div>
                                 <div className="pt-4 border-t border-white/10 flex justify-between items-center group cursor-pointer">
@@ -164,7 +164,7 @@ export default function ContactPage() {
                                                 value={formState.name}
                                                 onChange={handleChange}
                                                 placeholder="Enter your name"
-                                                className="w-full h-14 bg-muted border border-border rounded-2xl px-6 font-medium focus:bg-card focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-muted-foreground/50 text-foreground"
+                                                className="w-full h-14 bg-muted dark:bg-slate-800/50 border border-border dark:border-white/5 rounded-2xl px-6 font-medium focus:bg-card focus:border-accent focus:ring-4 focus:ring-accent/5 outline-none transition-all placeholder:text-muted-foreground/50 text-foreground"
                                             />
                                         </div>
                                         <div className="space-y-3">

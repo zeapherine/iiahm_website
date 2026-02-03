@@ -9,36 +9,28 @@ import { Card } from "@/components/ui/card";
 
 const courses = [
     {
-        id: "aviation",
-        title: "Aviation & Air Hostess",
+        id: "air-hostess",
+        title: "Air Hostess & Cabin Crew",
         icon: Plane,
-        duration: "1_YEAR_DIPLOMA",
-        description: "Master global cabin standards, international grooming, and tactical safety protocols.",
-        features: ["Cabin_Crew_Operations", "Passenger_Liaison", "Surgical_Grooming", "Safety_Tactics"]
+        duration: "6 MONTHS / 1 YEAR",
+        description: "Transform into an elite travel professional. Master global cabin standards, international grooming, and tactical safety protocols.",
+        features: ["Aviation Fundamentals", "International Grooming", "In-flight Service", "Crisis Management"]
     },
     {
-        id: "hotel",
+        id: "ground-staff",
+        title: "Airport Ground Staff",
+        icon: Headphones,
+        duration: "6 MONTHS / 1 YEAR",
+        description: "Control the complex operations of international airports. Master check-in, security, and ramp management.",
+        features: ["Passenger Handling", "Ticketing Systems", "Ramp Operations", "Baggage Logistics"]
+    },
+    {
+        id: "hotel-management",
         title: "Hotel Management",
         icon: Building2,
-        duration: "1_YEAR_DIPLOMA",
-        description: "Precision training for elite front-office and F&B operations in 5-star global chains.",
-        features: ["Front_Office_Elite", "F&B_Strategy", "Luxury_Operations", "Hospitality_Leadership"]
-    },
-    {
-        id: "hospitality",
-        title: "Global Hospitality",
-        icon: Utensils,
-        duration: "6_MONTHS_CERT",
-        description: "Engineered guest relations and service excellence for the modern global tourism sector.",
-        features: ["Service_Excellence", "Global_Tourism", "CRM_Tactics", "Luxe_Relations"]
-    },
-    {
-        id: "customer-service",
-        title: "Corporate Desk Operations",
-        icon: Headphones,
-        duration: "3_MONTHS_INTENSIVE",
-        description: "Tactical communication and desk support for international corporate environments.",
-        features: ["Global_Accents", "Conflict_Resolution", "Digital_Liaison", "Ops_Coordination"]
+        duration: "3 TO 12 MONTHS",
+        description: "Precision training for elite front-office and F&B operations in 5-star global chains. 100% job assistance.",
+        features: ["Front Office Elite", "F&B Service", "Hotel Administration", "Culinary Arts"]
     }
 ];
 

@@ -129,38 +129,78 @@
         "images": [
             {
                 "name": "Logo New",
-                "url": "https://static.wixstatic.com/media/e2e661_2d1fb5ce65d5449f88f9aed723ea38c4~mv2.png/v1/fill/w_277,h_167,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo%20New.png",
+                "url": "/external-assets/logo.png",
                 "type": "logo"
             },
             {
                 "name": "Hero Banner 1",
-                "url": "https://static.wixstatic.com/media/e2e661_463e1184bea948c8a051e9337bbbefbe~mv2.jpg/v1/fill/w_1500,h_1080,al_c,q_85,enc_avif,quality_auto/e2e661_463e1184bea948c8a051e9337bbbefbe~mv2.jpg",
+                "url": "/external-assets/hero_banner_1.jpg",
                 "type": "hero"
             },
             {
                 "name": "Cover Image",
-                "url": "https://static.wixstatic.com/media/e2e661_8d8a6c7dc0b442c1b45812ea32504b9e~mv2.jpg/v1/fill/w_1373,h_340,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Cover.jpg",
+                "url": "/external-assets/cover_image.jpg",
                 "type": "hero"
             },
             {
                 "name": "NGO Hero",
-                "url": "https://static.wixstatic.com/media/e2e661_b9ca939e81b14195b8812c1f51ee7608~mv2.jpg/v1/fill/w_1617,h_1080,al_c,q_85,enc_avif,quality_auto/e2e661_b9ca939e81b14195b8812c1f51ee7608~mv2.jpg",
+                "url": "/external-assets/ngo_hero.jpg",
                 "type": "hero"
             },
             {
                 "name": "HM Landing",
-                "url": "https://static.wixstatic.com/media/e2e661_d81fb0706e8d493cad1549e899aea9f2~mv2.jpg/v1/fill/w_1249,h_467,q_90,enc_avif,quality_auto/e2e661_d81fb0706e8d493cad1549e899aea9f2~mv2.jpg",
+                "url": "/external-assets/hm_landing.jpg",
                 "type": "hero"
             },
             {
                 "name": "Trainers",
-                "url": "https://static.wixstatic.com/media/e2e661_90170d26722e41808e75c5e6523c4888~mv2.jpg/v1/fill/w_600,h_449,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Trainers.jpg",
+                "url": "/external-assets/trainers.jpg",
                 "type": "team"
             },
             {
                 "name": "Student Life",
-                "url": "https://static.wixstatic.com/media/11062b_4b95dfb7e4cf4f02a2c2c774cbc42f00~mv2_d_8660_5773_s_4_2.jpg/v1/fill/w_2498,h_336,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_4b95dfb7e4cf4f02a2c2c774cbc42f00~mv2_d_8660_5773_s_4_2.jpg",
+                "url": "/external-assets/student_life.jpg",
                 "type": "gallery"
+            },
+            {
+                "name": "Course Air Hostess",
+                "url": "/external-assets/courses/air_hostess.png",
+                "type": "course"
+            },
+            {
+                "name": "Course Ground Staff",
+                "url": "/external-assets/courses/ground_staff.png",
+                "type": "course"
+            },
+            {
+                "name": "Course Hotel Mgmt",
+                "url": "/external-assets/courses/hotel_mgmt.png",
+                "type": "course"
+            },
+            {
+                "name": "Course Cruise",
+                "url": "/external-assets/courses/cruise.png",
+                "type": "course"
+            },
+            {
+                "name": "Course Airport Ops",
+                "url": "/external-assets/courses/airport_ops.png",
+                "type": "course"
+            },
+            {
+                "name": "Course Cabin Crew",
+                "url": "/external-assets/courses/cabin_crew.png",
+                "type": "course"
+            },
+            {
+                "name": "Achievement 3",
+                "url": "/external-assets/achievements/achievement_3.png",
+                "type": "achievement"
+            },
+            {
+                "name": "Achievement 4",
+                "url": "/external-assets/achievements/achievement_4.png",
+                "type": "achievement"
             }
         ]
     }
