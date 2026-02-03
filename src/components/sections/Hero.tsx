@@ -7,6 +7,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ApplicationPopup } from "@/components/ui/ApplicationPopup";
 import { ArrowRight, Globe, Shield } from "lucide-react";
+import { FlightPathGlobe } from "@/components/three/FlightPathGlobe";
 
 export function Hero() {
     const [showPopup, setShowPopup] = useState(false);
@@ -135,20 +136,13 @@ export function Hero() {
                             transition={{ delay: 0.4, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                             className="absolute inset-0 bg-slate-50 dark:bg-slate-950 rounded-[2rem] border border-slate-200/50 dark:border-white/5 shadow-2xl overflow-hidden"
                         >
-                            {/* Abstract Visual Replacement for Image */}
-                            <motion.div style={{ y: imageY }} className="absolute inset-0 z-0">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary via-slate-900 to-accent/20 dark:from-slate-950 dark:via-slate-900 dark:to-accent/10" />
-                                <div className="absolute inset-0 opacity-30">
-                                    <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px] animate-pulse" />
-                                    <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-primary/20 blur-[120px] animate-pulse" style={{ animationDelay: "2s" }} />
-                                </div>
-                                {/* Technical Grid Overlay */}
-                                <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
-                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 dark:from-background via-transparent to-transparent" />
-                            </motion.div>
+                            {/* Three.js Globe Animation */}
+                            <div className="absolute inset-0 z-0">
+                                <FlightPathGlobe />
+                            </div>
 
                             {/* Abstract Gradient Overlay - Subtle Shimmer */}
-                            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-40"></div>
+                            <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent opacity-40 pointer-events-none"></div>
 
                             {/* 1. Floating Badge: ISO Certified */}
                             <motion.div
