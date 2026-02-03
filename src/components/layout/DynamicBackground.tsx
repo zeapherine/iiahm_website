@@ -13,22 +13,22 @@ export default function DynamicBackground() {
         setMounted(true);
     }, []);
 
-    if (!mounted) return null;
-
     const smoothProgress = useSpring(scrollYProgress, {
         stiffness: 100,
         damping: 30,
         restDelta: 0.001
     });
 
-    // Handle theme-aware colors
     // Light: White -> Soft Azure -> Subtle Lavender -> Slate-50
     // Dark: Deep Midnight -> Dark Blue -> Deep Slate -> Deep Midnight
-    const colors = mounted && resolvedTheme === 'dark'
+    const colors = resolvedTheme === 'dark'
         ? ["#020617", "#0f172a", "#1e293b", "#020617"]
         : ["#ffffff", "#f0f9ff", "#f5f3ff", "#f8fafc"];
 
     const bgColor = useTransform(smoothProgress, [0, 0.4, 0.8, 1], colors);
+
+    if (!mounted) return null;
+
 
     return (
         <motion.div
